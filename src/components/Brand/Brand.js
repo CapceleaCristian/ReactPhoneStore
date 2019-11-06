@@ -1,16 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getBrandName } from '../../../redux/actions/fetchDataAction';
-import { requestData } from '../../../redux/actions/fetchDataAction';
+import { getBrandName } from '../../redux/actions/fetchDataAction';
+import { requestData } from '../../redux/actions/fetchDataAction';
 import './Brand.scss';
 
-import { phoneTypeBrands } from '../../../assets/services/dataArr';
+import { phoneTypeBrands } from '../../assets/services/dataArr';
 
-const Brand = (props) => {
-   // Props
-   const { brandName } = props;
-   // Function
+const BrandComponent = (props) => {
    const { brandHandler, onFetch } = props;
 
    const getBrand = (e) => {
@@ -48,4 +45,4 @@ const mapDispatchToProps = {
    onFetch: requestData
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Brand);
+export const Brand = connect(mapStateToProps, mapDispatchToProps)(BrandComponent);
