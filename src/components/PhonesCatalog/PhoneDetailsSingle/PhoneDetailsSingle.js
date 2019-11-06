@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { requestImages } from '../../../redux/actions/fetchImagesAction';
+import { requestImages } from '../../../store/actions/fetchImagesAction';
 // import { noImg } from '../../../assets/services/constants';
 import './PhoneDetailsSingle.scss';
 

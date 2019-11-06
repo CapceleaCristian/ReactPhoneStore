@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { getPhoneInfo, getBrandName } from '../../redux/actions/fetchDataAction';
+import { getPhoneInfo, getBrandName } from '../../store/actions/fetchDataAction';
 import SearchBar from '../SearchBar/SearchBar';
 import BarSelectionBrands from '../BarSelectionBrands/BarSelectionBrands';
 import PhonesListing from './PhonesListing/PhonesListing';

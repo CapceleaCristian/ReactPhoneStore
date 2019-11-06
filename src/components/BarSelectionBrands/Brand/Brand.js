@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getBrandName } from '../../../redux/actions/fetchDataAction';
-import { getPhoneInfo } from '../../../redux/actions/fetchDataAction';
+import { getBrandName } from '../../../store/actions/fetchDataAction';
+import { getPhoneInfo } from '../../../store/actions/fetchDataAction';
 import './Brand.scss';
 
 import { phoneTypeBrands } from '../../../assets/services/dataArr';
