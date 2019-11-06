@@ -1,0 +1,11 @@
+@import '../../styles/colorVariables.scss';
+
+.searchbar-container{
+    margin: 20px 0;
+    text-align: center;
+    input{
+        padding: 5px 10px;
+        width: 100%;
+        border: 3px solid $mainDarkBlue;
+    }
+}

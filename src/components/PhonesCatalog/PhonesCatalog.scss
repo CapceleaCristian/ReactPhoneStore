@@ -1,0 +1,32 @@
+@import '../../styles/colorVariables.scss';
+
+.phones-container{
+    margin-top: 70px;
+    .phones-inner{
+        display: flex;
+        .phones-list{
+            padding: 15px 40px;
+        }
+    }
+}
+.phones-title{
+    text-align : right;
+}
+
+.isloading-text{
+    padding: 10px 0;
+    text-align: center;
+}
+.brandname-styled{
+    color: $white;
+    padding: 4px 50px;
+    background-color: $mainDarkBlue;
+   
+;}
+.current-target-container{
+    h3{
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+    }
+}

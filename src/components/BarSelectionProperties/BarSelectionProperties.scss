@@ -1,0 +1,23 @@
+@import '../../styles/colorVariables.scss';
+
+.bar-selection-properties{
+    padding-left: 30px;
+    border-left: 3px solid $mainDarkBlue;
+    margin-left: auto;
+}
+.properties-top-text{
+    padding-bottom: 10px;
+    border-bottom: 2px solid $mainDarkBlue;
+}
+.properties-inner{
+    padding: 15px 0;
+}
+
+// General border bottom
+.property-title{
+    border-bottom: 1px solid #dbdbdb;
+    padding-bottom: 10px;
+}
+.phones-properties-list{
+    padding: 10px 0;
+}
