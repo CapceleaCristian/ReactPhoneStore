@@ -6,13 +6,13 @@ import './PhonesListing.scss';
 const PhonesListing = ({ currentItems }) => {
     return (
         <div className="phone-listing">
-            {currentItems.map((i, index) =>
+            {currentItems.map((phoneInfo, index) =>
                 <div key={index}>
                     <Link to={{
-                        pathname: `/phones/${i.DeviceName.split(' ').join('-')}`,
-                        phone: { info: [i] }
+                        pathname: `/phones/${phoneInfo.DeviceName.split(' ').join('-')}`,
+                        phone: phoneInfo,
                     }}>
-                        {i.DeviceName}
+                        {phoneInfo.DeviceName}
                     </Link>
                 </div>)}
         </div>

@@ -17,7 +17,6 @@ export default function (state = initialState, action) {
       case IS_LOADING:
          return {
             ...state,
-            data: action.payload.data,
             isLoading: action.payload.isLoading
          }
       case GET_BRAND_NAME:

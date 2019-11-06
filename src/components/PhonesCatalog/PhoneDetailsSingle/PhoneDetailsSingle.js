@@ -1,16 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import stringSimilarity from 'string-similarity';
 
 import { requestImages } from '../../../redux/actions/fetchImagesAction';
-// import { noImg } from '../../../assets/services/constants';
 import './PhoneDetailsSingle.scss';
 
 const Phone = (props) => {
-   const { onImgFetch } = props;
-   const phoneDetails = props.location.phone.info[0];
-   const { images } = props.images;
-   const { brandName } = props;
+   const { onImgFetch, phonesInfo, match, images } = props;
+   // Use phoneDetails not from react-router but from redux store
+   // Stupid workaround match prop from react-router has 'params'
+   // in params there is 'brand', for example Samsung-SGH-250
+   // To search this phone in the phonesInfo from redux
+
+   const nameToMatch = match.params.brand;
+   // Find that phone from redux matches the most with url param 'brand'
+   const matches = stringSimilarity.findBestMatch(nameToMatch, phonesInfo.map(phoneInfo => phoneInfo.DeviceName).concat(''));
+   const phoneDetails = phonesInfo[matches.bestMatchIndex] || {};
 
    const phoneDeviceName = phoneDetails.DeviceName;
    const items = Object.keys(phoneDetails).map((key, index) =>
@@ -62,7 +68,8 @@ const Phone = (props) => {
 }
 
 const mapStateToProps = (state) => ({
-   images: state.imagesData,
+   images: state.imagesData.images,
+   phonesInfo: state.phonesData.data,
    brandName: state.phonesData.brand
 });
 

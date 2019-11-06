@@ -21,7 +21,7 @@ const Brand = (props) => {
 
    const BarSelectionMapping = phoneTypeBrands.map(i => {
       return (
-         <div className="phones-brand-model">
+         <div className="phones-brand-model" key={i}>
             <h5
                className="phones-name-title"
                onClick={getBrand}>
