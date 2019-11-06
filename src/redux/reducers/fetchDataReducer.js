@@ -1,24 +1,30 @@
-import { FETCH_DATA_SUCCESS, IS_LOADING, GET_BRAND_NAME } from '../types/types';
+import { API_PHONE_INFO_SUCCESS, GET_BRAND_NAME, API_PHONE_INFO_ERROR, API_PHONE_INFO_REQUEST } from '../types/types';
 
 const initialState = {
    data: [],
    isLoading: false,
+   error: null,
    brand: 'Samsung'
 }
 
 export default function (state = initialState, action) {
    switch (action.type) {
-      case FETCH_DATA_SUCCESS:
+      case API_PHONE_INFO_REQUEST:
          return {
             ...state,
-            data: action.payload.data,
-            isLoading: action.payload.isLoading
+            isLoading: true
          }
-      case IS_LOADING:
+      case API_PHONE_INFO_SUCCESS:
          return {
             ...state,
             data: action.payload.data,
-            isLoading: action.payload.isLoading
+            isLoading: false
+         }
+      case API_PHONE_INFO_ERROR:
+         return {
+            ...state,
+            data: action.payload.data,
+            isLoading: false
          }
       case GET_BRAND_NAME:
          return {

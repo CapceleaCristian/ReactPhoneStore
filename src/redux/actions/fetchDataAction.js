@@ -1,16 +1,21 @@
-import { FETCH_DATA_SUCCESS, REQUEST_DATA, GET_BRAND_NAME } from '../types/types';
+import { GET_BRAND_NAME, API_PHONE_INFO_SUCCESS, API_PHONE_INFO_REQUEST, API_PHONE_INFO_ERROR } from '../types/types';
 
-export const fetchDataSuccess = () => ({
-    type: FETCH_DATA_SUCCESS
+export const phoneInfoSuccess = (payload) => ({
+    type: API_PHONE_INFO_SUCCESS,
+    payload
 })
 
-export const requestData = () => ({
-    type: REQUEST_DATA
+export const getPhoneInfo = () => ({
+    type: API_PHONE_INFO_REQUEST
 })
 
-export const getBrandName = (value) => ({
+export const getBrandName = (payload) => ({
     type: GET_BRAND_NAME,
-    payload: value
+    payload
+})
+export const phoneInfoError = (payload) => ({
+    type: API_PHONE_INFO_ERROR,
+    payload
 })
 
 

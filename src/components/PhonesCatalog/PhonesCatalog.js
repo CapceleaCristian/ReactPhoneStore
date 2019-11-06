@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { requestData, getBrandName } from '../../redux/actions/fetchDataAction';
+import { getPhoneInfo, getBrandName } from '../../redux/actions/fetchDataAction';
 import SearchBar from '../SearchBar/SearchBar';
 import BarSelectionBrands from '../BarSelectionBrands/BarSelectionBrands';
 import PhonesListing from './PhonesListing/PhonesListing';
@@ -54,7 +54,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = ({
-   onFetch: requestData,
+   onFetch: getPhoneInfo,
    brandHandler: getBrandName
 })
 

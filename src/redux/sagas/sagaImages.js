@@ -1,5 +1,5 @@
 import { takeEvery, put, call, select } from 'redux-saga/effects';
-import { REQUEST_IMAGES, FETCH_IMAGES_SUCCESS, IS_LOADING } from '../types/types';
+import { REQUEST_IMAGES, FETCH_IMAGES_SUCCESS } from '../types/types';
 
 import { unsplashURL, client_id } from '../../assets/services/constants';
 
@@ -10,13 +10,7 @@ function reqImages(brandName) {
 }
 
 function* fetchImages() {
-    yield put({
-        type: IS_LOADING,
-        payload: {
-            isLoading: true,
-            images: []
-        }
-    })
+
     const getBrand = yield select();
     const brandName = getBrand.phonesData.brand;
 

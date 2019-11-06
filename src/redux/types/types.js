@@ -1,8 +1,7 @@
 // Fetching data from API
-export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
-export const REQUEST_DATA = 'REQUEST_DATA';
-// Is Loading
-export const IS_LOADING = 'IS_LOADING';
+export const API_PHONE_INFO_SUCCESS = 'API_PHONE_INFO_SUCCESS';
+export const API_PHONE_INFO_REQUEST = 'API_PHONE_INFO_REQUEST';
+export const API_PHONE_INFO_ERROR = 'API_PHONE_INFO_ERROR';
 
 // -----------------------------
 export const REQUEST_IMAGES = 'REQUEST_IMAGES';
