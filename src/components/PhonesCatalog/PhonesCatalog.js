@@ -9,11 +9,23 @@ import BarSelectionProperties from '../BarSelectionProperties/BarSelectionProper
 import './PhonesCatalog.scss';
 
 const PhonesCatalog = (props) => {
+   // Never Ever Ever in the life time distructure multiple times from and object
    // Props
    const { brandName } = props;
    const { items } = props;
    // Functions
    const { onFetch, isLoading, brandHandler } = props;
+   // Approach above is not corrent
+   // At the end of the day you can do
+
+   // const brandName = props.brandName;
+   // const items = props.items;
+   // const onFetch = props.onFetch;
+
+   // TODO: Fefactor to
+   // const { brandName, items, onFetch } = props;
+
+   
    const [searchInput, setSearchInput] = useState('');
    let currentItems = [];
 
