@@ -7,6 +7,7 @@ function reqData(brandName) {
     return fetch(`${fonoapiURL}/v1/getdevice?token=${fonoToken}&device=${brandName}`)
         .then(res => res.json())
 }
+
 function* fetchData() {
     const getBrand = yield select();
     const brandName = getBrand.phonesData.brand;

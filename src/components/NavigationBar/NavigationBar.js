@@ -9,7 +9,7 @@ const NavigationBar = () => {
          <div className="container">
             <div className="navigationbar-inner">
                <div className="navigationbar-logo">
-                  <Link to="/">Store</Link>
+                  <Link to="/">PhoneStore</Link>
                </div>
                <div className="navigationbar-links">
                   <Link to="/phones">All smartphones</Link>
