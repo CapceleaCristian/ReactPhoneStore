@@ -5,7 +5,7 @@ import { getBrandName } from '../../../store/actions/fetchDataAction';
 import { getPhoneInfo } from '../../../store/actions/fetchDataAction';
 import './Brand.scss';
 
-import { phoneTypeBrands } from '../../../utils/dataArr';
+import { phoneTypeBrands } from '../../../utils/phonesBrands';
 
 const Brand = (props) => {
    // Props
