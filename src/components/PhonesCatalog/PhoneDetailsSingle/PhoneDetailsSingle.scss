@@ -11,12 +11,14 @@
         padding-bottom: 25px;
         border-bottom: 1px solid $lightGrey;
         .phone-back{
-            font-size: 20px;
-            p{
-                padding: 10px 20px;
-                text-align: center;
-                width: 100%;
-                background-color: $mainDarkBlue;
+            font-size: 16px;
+            padding: 10px 35px;
+            color: $white;
+            background-color: $mainDarkBlue;
+            transition: all 0.3s ease-in-out;
+            border: none;
+            &:hover{
+                background-color: $goldMain;
                 color: $white;
             }
         }

@@ -12,7 +12,6 @@ const Phone = (props) => {
    const { images } = props.images;
 
    const nameToMatch = match.params.brand;
-
    const matches = stringSimilarity.findBestMatch(nameToMatch, phonesInfo.map(phoneInfo => phoneInfo.DeviceName).concat(''));
    const phoneDetails = phonesInfo[matches.bestMatchIndex] || {};
 
@@ -33,7 +32,7 @@ const Phone = (props) => {
    const randomPrice = `${Math.ceil(Math.random() * 150)} EUR (random)`;
    let devicePrice = 0;
    if (phoneDetails.price) {
-      devicePrice = phoneDetails.price;
+      devicePrice = `${(phoneDetails.price).split('/').slice(0, 1).join().split(';').slice(2)} EUR`;
    }
    else {
       devicePrice = randomPrice;
@@ -44,7 +43,7 @@ const Phone = (props) => {
          <div className="container">
             <div className="phone-details-intro">
                <Link className="phone-back" to="/phones">
-                  <p>Back to All Phones</p>
+                  <p> <i className="fas fa-chevron-left" /> Back to All Phones</p>
                </Link>
                <h3>Page details for: <span>{phoneDeviceName}</span> </h3>
             </div>
@@ -55,7 +54,7 @@ const Phone = (props) => {
                <div className="phone-img">
                   <div className="device-purchase-details" >
                      <p className="price-amount"> Device price: <span>{devicePrice}</span> </p>
-                     <button className="btn-addcart"> Add to Cart </button>
+                     <button className="btn-addcart">  Add to Cart </button>
                   </div>
                   {images ? <img src={images[randomNum]} /> : <h3>No Img...</h3>}
                </div>
