@@ -1,15 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import {
-  NavigationBar,
-  Home,
-  PhonesCatalog,
-  PhoneDetailsSingle,
-  InCart,
-  NoMatchPage
-} from './components';
-
+import { NavigationBar, PhonesCatalog, PhoneDetailsSingle, } from './components';
+import { HomePage, NoMatchPage, InCartPage } from './pages';
 import './App.scss';
 
 
@@ -19,10 +12,10 @@ const App = () => {
       <Router>
         <NavigationBar />
         <Switch>
-          <Route path="/" component={Home} exact />
+          <Route path="/" component={HomePage} exact />
           <Route path="/phones" component={PhonesCatalog} exact />
           <Route path="/phones/:brand" component={PhoneDetailsSingle} exact />
-          <Route path="/in-cart" component={InCart} />
+          <Route path="/in-cart" component={InCartPage} />
           <Route component={NoMatchPage} />
         </Switch>
       </Router>

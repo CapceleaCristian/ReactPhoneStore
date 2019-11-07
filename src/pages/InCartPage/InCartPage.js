@@ -1,10 +1,10 @@
 import React from 'react';
-import './InCart.scss';
+import './InCartPage.scss';
 
-const InCart = () => {
+const InCartPage = () => {
 
     return (
-        <div className="incart-container">
+        <div className="incart-page-container">
             <div className="container">
                 <div className="h1">In Cart Section:</div>
             </div>
@@ -12,4 +12,4 @@ const InCart = () => {
     )
 }
 
-export default InCart;
+export default InCartPage;

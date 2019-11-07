@@ -5,7 +5,7 @@ import { getBrandName } from '../../../store/actions/fetchDataAction';
 import { getPhoneInfo } from '../../../store/actions/fetchDataAction';
 import './Brand.scss';
 
-import { phoneTypeBrands } from '../../../assets/services/dataArr';
+import { phoneTypeBrands } from '../../../utils/dataArr';
 
 const Brand = (props) => {
    // Props
@@ -19,13 +19,13 @@ const Brand = (props) => {
       onFetch();
    }
 
-   const BarSelectionMapping = phoneTypeBrands.map(i => {
+   const BarSelectionMapping = phoneTypeBrands.map(phoneType => {
       return (
-         <div className="phones-brand-model">
+         <div className="phones-brand-model" key={phoneType}>
             <h5
                className="phones-name-title"
                onClick={getBrand}>
-               {i}
+               {phoneType}
             </h5>
          </div>
       )

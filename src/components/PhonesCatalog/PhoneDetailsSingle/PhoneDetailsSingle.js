@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import stringSimilarity from 'string-similarity';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { requestImages } from '../../../store/actions/fetchImagesAction';
-// import { noImg } from '../../../assets/services/constants';
 import './PhoneDetailsSingle.scss';
 
 const Phone = (props) => {
-   const { onImgFetch } = props;
-   const phoneDetails = props.location.phone.info[0];
+
+   const { onImgFetch, phonesInfo, match } = props;
    const { images } = props.images;
-   const { brandName } = props;
+
+   const nameToMatch = match.params.brand;
+
+   const matches = stringSimilarity.findBestMatch(nameToMatch, phonesInfo.map(phoneInfo => phoneInfo.DeviceName).concat(''));
+   const phoneDetails = phonesInfo[matches.bestMatchIndex] || {};
 
    const phoneDeviceName = phoneDetails.DeviceName;
    const items = Object.keys(phoneDetails).map((key, index) =>
@@ -63,7 +67,8 @@ const Phone = (props) => {
 
 const mapStateToProps = (state) => ({
    images: state.imagesData,
-   brandName: state.phonesData.brand
+   phonesInfo: state.phonesData.data,
+   brandName: state.phonesData.brand,
 });
 
 const mapDispatchToProps = ({

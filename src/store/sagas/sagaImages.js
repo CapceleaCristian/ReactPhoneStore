@@ -1,7 +1,7 @@
 import { takeEvery, put, call, select } from 'redux-saga/effects';
 import { REQUEST_IMAGES, FETCH_IMAGES_SUCCESS } from '../types/types';
 
-import { unsplashURL, client_id } from '../../assets/services/constants';
+import { unsplashURL, client_id } from '../../utils/constants';
 
 function reqImages(brandName) {
     return fetch(`${unsplashURL}?query=${brandName}&client_id=${client_id}`)

@@ -1,7 +1,7 @@
 import React from 'react';
-import './Home.scss'
+import './HomePage.scss'
 
-const Home = () => {
+const HomePage = () => {
     return (
         <div className="home-container">
             <div className="container">
@@ -12,4 +12,4 @@ const Home = () => {
     )
 }
 
-export default Home;
+export default HomePage;

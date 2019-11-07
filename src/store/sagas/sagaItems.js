@@ -1,7 +1,7 @@
 import { takeEvery, put, call, select } from 'redux-saga/effects';
 import { API_PHONE_INFO_REQUEST, API_PHONE_INFO_SUCCESS, } from '../types/types';
 
-import { fonoapiURL, fonoToken } from '../../assets/services/constants';
+import { fonoapiURL, fonoToken } from '../../utils/constants';
 
 function reqData(brandName) {
     return fetch(`${fonoapiURL}/v1/getdevice?token=${fonoToken}&device=${brandName}`)
