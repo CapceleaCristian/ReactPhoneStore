@@ -1,4 +1,7 @@
 import React from 'react';
+import { cameraTypes } from '../../../utils/data';
+
+const camera = cameraTypes.map(camera => <li> - {camera} - </li>);
 
 const Camera = () => {
     return (
@@ -7,10 +10,7 @@ const Camera = () => {
                 <h5>Camera: (MP)</h5>
             </div>
             <ul className="phones-properties-list">
-                <li> - under 9 - </li>
-                <li> - 10 - 15 - </li>
-                <li> - 16 - 20 - </li>
-                <li> - higher 21 - </li>
+                {camera}
             </ul>
         </div>
     )

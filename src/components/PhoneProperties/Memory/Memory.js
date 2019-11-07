@@ -1,4 +1,7 @@
 import React from 'react';
+import { memoryTypes } from '../../../utils/data';
+
+const memory = memoryTypes.map(memory => <li> - {memory} - </li>);
 
 const Memory = () => {
     return (
@@ -7,13 +10,7 @@ const Memory = () => {
                 <h5>Memory: (GB)</h5>
             </div>
             <ul className="phones-properties-list">
-                <li> - 512 - </li>
-                <li> - 256  - </li>
-                <li> - 128 - </li>
-                <li> - 64 - </li>
-                <li> - 32 - </li>
-                <li> - 16 - </li>
-                <li> - 8 - </li>
+                {memory}
             </ul>
         </div>
     )
