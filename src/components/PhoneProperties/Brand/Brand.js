@@ -10,7 +10,7 @@ import { phoneTypeBrands } from '../../../assets/services/dataArr';
 const Brand = (props) => {
    // Props
    const { brandName } = props;
-   // Function
+   // Functions
    const { brandHandler, onFetch } = props;
 
    const getBrand = (e) => {

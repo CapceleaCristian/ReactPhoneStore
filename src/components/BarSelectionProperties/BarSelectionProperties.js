@@ -1,8 +1,8 @@
 import React from 'react';
-import Battery from '../BarSelectionProperties/Battery/Battery';
-import Camera from '../BarSelectionProperties/Camera/Camera';
-import Memory from '../BarSelectionProperties/Memory/Memory';
-import Dimension from '../BarSelectionProperties/Dimension/Dimension';
+import Battery from '../PhoneProperties/Battery/Battery';
+import Camera from '../PhoneProperties/Camera/Camera';
+import Memory from '../PhoneProperties/Memory/Memory';
+import Dimension from '../PhoneProperties/Dimension/Dimension';
 
 import './BarSelectionProperties.scss';
 

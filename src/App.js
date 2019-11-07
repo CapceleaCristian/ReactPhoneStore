@@ -1,13 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+import {
+  NavigationBar,
+  Home,
+  PhonesCatalog,
+  PhoneDetailsSingle,
+  InCart,
+  NoMatchPage
+} from './components';
+
 import './App.scss';
-import NavigationBar from './components/NavigationBar/NavigationBar';
-import Home from './components/Home/Home';
-import PhonesCatalog from './components/PhonesCatalog/PhonesCatalog';
-import PhoneDetailsSingle from './components/PhonesCatalog/PhoneDetailsSingle/PhoneDetailsSingle';
-import InCart from './components/InCart/InCart';
-import NoMatchPage from './components/NoMatchPage/NoMatch';
+
 
 const App = () => {
   return (
