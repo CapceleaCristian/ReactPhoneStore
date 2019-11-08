@@ -1,7 +1,7 @@
 import React from 'react';
 import { cameraTypes } from '../../../utils/data';
 
-const camera = cameraTypes.map(camera => <li> - {camera} - </li>);
+const cameraArr = cameraTypes.map(camera => <li> - {camera} - </li>);
 
 const Camera = () => {
     return (
@@ -10,7 +10,7 @@ const Camera = () => {
                 <h5>Camera: (MP)</h5>
             </div>
             <ul className="phones-properties-list">
-                {camera}
+                {cameraArr}
             </ul>
         </div>
     )

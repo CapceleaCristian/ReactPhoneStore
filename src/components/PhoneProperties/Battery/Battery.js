@@ -3,7 +3,7 @@ import { batteryTypes } from '../../../utils/data';
 
 const Battery = () => {
 
-    const battery = batteryTypes.map(battery => <li> - {battery} - </li>);
+    const batteryArr = batteryTypes.map(battery => <li> - {battery} - </li>);
 
     return (
         <div className="battery-container">
@@ -11,7 +11,7 @@ const Battery = () => {
                 <h5>Battery: (mAh)</h5>
             </div>
             <ul className="phones-properties-list">
-                {battery}
+                {batteryArr}
             </ul>
         </div>
     )

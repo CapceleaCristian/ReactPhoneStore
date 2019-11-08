@@ -1,5 +1,7 @@
 import React from 'react';
-import './HomePage.scss'
+import './HomePage.scss';
+
+import { homeImgURL } from '../../assets/resources/imagesURL';
 
 const HomePage = () => {
    return (
@@ -8,7 +10,7 @@ const HomePage = () => {
             <h1>Welcome, this is Home Page !!</h1>
             <img
                draggable="false"
-               src="https://www.gizmotimes.com/wp-content/uploads/2017/02/Dual-band-Tri-Band-Quad-Band-Phones.jpg"
+               src={homeImgURL}
                alt=""
             />
          </div>

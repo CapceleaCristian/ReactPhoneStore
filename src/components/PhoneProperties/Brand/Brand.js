@@ -8,10 +8,8 @@ import './Brand.scss';
 import { phoneTypeBrands } from '../../../utils/data';
 
 const Brand = (props) => {
-   // Props
-   const { brandName } = props;
-   // Functions
-   const { brandHandler, onFetch } = props;
+
+   const { brandName, brandHandler, onFetch } = props;
 
    const getBrand = (e) => {
       const value = e.currentTarget.innerText;

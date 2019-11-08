@@ -1,7 +1,7 @@
 import React from 'react';
 import { dimensionTypes } from '../../../utils/data';
 
-const dimension = dimensionTypes.map(dimension => <li> - {dimension} - </li>);
+const dimensionArr = dimensionTypes.map(dimension => <li> - {dimension} - </li>);
 
 const Dimension = () => {
     return (
@@ -10,7 +10,7 @@ const Dimension = () => {
                 <h5>Dimensions: (Inch) </h5>
             </div>
             <ul className="phones-properties-list">
-                {dimension}
+                {dimensionArr}
             </ul>
         </div>
     )

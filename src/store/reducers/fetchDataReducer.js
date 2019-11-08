@@ -23,7 +23,7 @@ export default function (state = initialState, action) {
       case API_PHONE_INFO_ERROR:
          return {
             ...state,
-            data: action.payload.data,
+            errpr: action.payload,
             isLoading: false
          }
       case GET_BRAND_NAME:
