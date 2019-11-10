@@ -4,11 +4,12 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { requestImages } from '../../../store/actions/fetchImagesAction';
+import { addPhoneToCart } from '../../../store/actions/inCartAction';
 import './PhoneDetailsSingle.scss';
 
 const Phone = (props) => {
 
-   const { onImgFetch, phonesInfo, match } = props;
+   const { phonesInfo, onImgFetch, addPhoneToCart, match, cart } = props;
    const { images } = props.images;
 
    const nameToMatch = match.params.brand;
@@ -38,6 +39,11 @@ const Phone = (props) => {
       devicePrice = randomPrice;
    }
 
+   const addInCartHandle = () => {
+      let currentPhone = props.location.phone;
+      addPhoneToCart([currentPhone]);
+   }
+
    return (
       <div className="phone-container">
          <div className="container">
@@ -54,7 +60,7 @@ const Phone = (props) => {
                <div className="phone-img">
                   <div className="device-purchase-details" >
                      <p className="price-amount"> Device price: <span>{devicePrice}</span> </p>
-                     <button className="btn-addcart">  Add to Cart </button>
+                     <button className="btn-addcart" onClick={addInCartHandle}>  Add to Cart </button>
                   </div>
                   {images ? <img src={images[randomNum]} /> : <h3>No Img...</h3>}
                </div>
@@ -68,10 +74,12 @@ const mapStateToProps = (state) => ({
    images: state.imagesData,
    phonesInfo: state.phonesData.data,
    brandName: state.phonesData.brand,
+   cart: state.inCartData.cart
 });
 
 const mapDispatchToProps = ({
-   onImgFetch: requestImages
+   onImgFetch: requestImages,
+   addPhoneToCart: addPhoneToCart
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phone);

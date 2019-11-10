@@ -1,23 +1,47 @@
-import React from 'react';
+import React, { useState, } from 'react';
+import { connect } from 'react-redux';
 
-import './SearchBar.scss'
+import { getBrandName, getPhoneInfo } from '../../store/actions/fetchDataAction';
+import './SearchBar.scss';
 
 const SearchBar = (props) => {
-   const { setSearchInput } = props;
+
+   const { brandName, brandHandler, onFetch } = props;
+
+   const [searchInput, setSearchInput] = useState('');
 
    const onChangeHandler = (e) => {
       setSearchInput(e.target.value);
    }
 
+   const handleEnterPress = (e) => {
+      if (e.which == 13) {
+         brandHandler(searchInput);
+         onFetch();
+         setSearchInput('');
+      }
+   }
+
    return (
-      <div className="searchbar-container">
+      <div className="searchbar-container"  >
          <input
             type="text"
             placeholder="Search something"
             onChange={onChangeHandler}
+            onKeyPress={handleEnterPress}
+            value={searchInput}
          />
       </div>
    )
 }
 
-export default SearchBar;
+const mapStateToProps = state => ({
+   brandName: state.phonesData.brand
+});
+
+const mapDispatchToProps = ({
+   brandHandler: getBrandName,
+   onFetch: getPhoneInfo
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

@@ -4,18 +4,22 @@
    position: fixed;
    width: 100%;
    top: 0;
+   z-index: 100;
    font-size: 18px;
    background-color: $mainDarkBlue;
    overflow: hidden;
-   a{
+
+   a {
       color: $white;
    }
+
    .navigationbar-inner {
       padding: 15px 0;
       display: flex;
       justify-content: space-between;
-      .navigationbar-links{
-         a{
+
+      .navigationbar-links {
+         a {
             margin-left: 25px;
          }
       }

@@ -2,7 +2,7 @@ import { API_PHONE_INFO_SUCCESS, GET_BRAND_NAME, API_PHONE_INFO_ERROR, API_PHONE
 
 const initialState = {
    data: [],
-   isLoading: false,
+   isLoading: null,
    error: null,
    brand: 'Samsung'
 }
@@ -23,7 +23,7 @@ export default function (state = initialState, action) {
       case API_PHONE_INFO_ERROR:
          return {
             ...state,
-            errpr: action.payload,
+            error: action.payload,
             isLoading: false
          }
       case GET_BRAND_NAME:

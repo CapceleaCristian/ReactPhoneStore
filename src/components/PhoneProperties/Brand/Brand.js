@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { getBrandName } from '../../../store/actions/fetchDataAction';
-import { getPhoneInfo } from '../../../store/actions/fetchDataAction';
-import './Brand.scss';
-
 import { phoneTypeBrands } from '../../../utils/data';
+import { getBrandName, getPhoneInfo } from '../../../store/actions/fetchDataAction';
+import './Brand.scss';
 
 const Brand = (props) => {
 

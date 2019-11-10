@@ -1,7 +1,7 @@
 import React from 'react';
 import { dimensionTypes } from '../../../utils/data';
 
-const dimensionArr = dimensionTypes.map(dimension => <li> - {dimension} - </li>);
+const dimensionArr = dimensionTypes.map(dimension => <li key={dimension}> - {dimension} - </li>);
 
 const Dimension = () => {
     return (

@@ -5,8 +5,9 @@ export const phoneInfoSuccess = (payload) => ({
     payload
 })
 
-export const getPhoneInfo = () => ({
-    type: API_PHONE_INFO_REQUEST
+export const getPhoneInfo = (payload) => ({
+    type: API_PHONE_INFO_REQUEST,
+    payload
 })
 
 export const getBrandName = (payload) => ({

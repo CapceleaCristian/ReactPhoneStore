@@ -3,7 +3,7 @@ import { batteryTypes } from '../../../utils/data';
 
 const Battery = () => {
 
-    const batteryArr = batteryTypes.map(battery => <li> - {battery} - </li>);
+    const batteryArr = batteryTypes.map(battery => <li key={battery}> - {battery} - </li>);
 
     return (
         <div className="battery-container">
