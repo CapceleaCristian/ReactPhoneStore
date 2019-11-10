@@ -9,7 +9,7 @@ import './PhoneDetailsSingle.scss';
 
 const Phone = (props) => {
 
-   const { phonesInfo, onImgFetch, addPhoneToCart, match, cart } = props;
+   const { phonesInfo, onImgFetch, addPhoneToCart, match } = props;
    const { images } = props.images;
 
    const nameToMatch = match.params.brand;
@@ -62,7 +62,7 @@ const Phone = (props) => {
                      <p className="price-amount"> Device price: <span>{devicePrice}</span> </p>
                      <button className="btn-addcart" onClick={addInCartHandle}>  Add to Cart </button>
                   </div>
-                  {images ? <img src={images[randomNum]} /> : <h3>No Img...</h3>}
+                  {images ? <img src={images[randomNum]} alt="" /> : <h3>No Img...</h3>}
                </div>
             </div>
          </div>

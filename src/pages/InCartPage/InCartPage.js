@@ -17,7 +17,7 @@ const InCartPage = (props) => {
                <h3>Total amount: (<strong>{totalAmout} EUR</strong>)</h3>
             </div>
             <div className="cart-total-discard">
-               {cart.length == 0 ?
+               {cart.length === 0 ?
                   <div className="cart-no-items">
                      <img src={confusedIMG} alt="" />
                      <p>Where are items ?</p>
@@ -51,7 +51,7 @@ const InCartPage = (props) => {
                </div>
             </div>
             <div className="products-order">
-               {cart.length == 0 ?
+               {cart.length === 0 ?
                   <div></div>
                   :
                   <div className="btn-products-order">

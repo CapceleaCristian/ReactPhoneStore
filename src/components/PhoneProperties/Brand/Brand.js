@@ -7,7 +7,7 @@ import './Brand.scss';
 
 const Brand = (props) => {
 
-   const { brandName, brandHandler, onFetch } = props;
+   const { brandHandler, onFetch } = props;
 
    const getBrand = (e) => {
       const value = e.currentTarget.innerText;

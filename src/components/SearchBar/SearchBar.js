@@ -6,8 +6,7 @@ import './SearchBar.scss';
 
 const SearchBar = (props) => {
 
-   const { brandName, brandHandler, onFetch } = props;
-
+   const { brandHandler, onFetch } = props;
    const [searchInput, setSearchInput] = useState('');
 
    const onChangeHandler = (e) => {
@@ -15,7 +14,7 @@ const SearchBar = (props) => {
    }
 
    const handleEnterPress = (e) => {
-      if (e.which == 13) {
+      if (e.which === 13) {
          brandHandler(searchInput);
          onFetch();
          setSearchInput('');

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { getPhoneInfo, getBrandName } from '../../store/actions/fetchDataAction';
@@ -12,7 +12,7 @@ const PhonesCatalog = (props) => {
    // Props
    const { items, brandName } = props;
    // Functions
-   const { onFetch, isLoading, brandHandler } = props;
+   const { onFetch, isLoading } = props;
 
    useEffect(() => {
       onFetch();
