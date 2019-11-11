@@ -1,8 +1,8 @@
-import { ADD_PHONE_TO_CART } from '../types/types';
+import { ADD_PHONE_TO_CART, DELETE_CURRENT_PHONE_CART, CLEAR_CURRENT_CART } from '../types/types';
 
 const initialState = {
     cart: [],
-    totalAmout: 0
+    totalAmount: 0
 }
 
 export default function (state = initialState, action) {
@@ -11,6 +11,16 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 cart: state.cart.concat(action.payload)
+            }
+        case DELETE_CURRENT_PHONE_CART:
+            return {
+                ...state,
+                cart: action.payload
+            }
+        case CLEAR_CURRENT_CART:
+            return {
+                ...state,
+                cart: action.payload
             }
         default:
             return state

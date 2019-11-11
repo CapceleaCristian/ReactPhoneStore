@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import './NavigationBar.scss';
 
 const NavigationBar = (props) => {
+
    const { cart } = props;
 
    return (
@@ -15,8 +16,9 @@ const NavigationBar = (props) => {
                   <Link to="/">PhoneStore</Link>
                </div>
                <div className="navigationbar-links">
+                  <Link to="/orders">Total Orders</Link>
                   <Link to="/phones">All smartphones</Link>
-                  <Link to="/in-cart">In Cart ({cart.length}) </Link>
+                  <Link to="/cart">In Cart ({cart.length}) </Link>
                </div>
             </div>
          </div>
