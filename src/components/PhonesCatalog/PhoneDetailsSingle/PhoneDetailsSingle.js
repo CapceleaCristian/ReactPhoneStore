@@ -86,11 +86,11 @@ const mapDispatchToProps = ({
 PhoneDetailsSingle.propTypes = {
    location: PropTypes.object,
    phone: PropTypes.object,
-   phonesInfo: PropTypes.object,
-   onImgFetch: PropTypes.object,
+   phonesInfo: PropTypes.array,
+   onImgFetch: PropTypes.func,
    addPhoneToCart: PropTypes.func,
-   match: PropTypes.string,
-   images: PropTypes.array,
+   match: PropTypes.object,
+   images: PropTypes.object,
    nameToMatch: PropTypes.string,
    currentPhone: PropTypes.object
 }
