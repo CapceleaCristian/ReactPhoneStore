@@ -1,26 +1,35 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { CartsContainer } from '../../components/CartsContainer';
-// import { deleteCurrentPhoneCart, clearCurrentCart } from '../../store/actions/inCartAction';
 import './InCartPage.scss';
 
-const InCartPage = () => {
+const InCartPage = (props) => {
 
-   console.log('zbs');
+   const { cart, totalAmount } = props;
 
    return (
-      <CartsContainer />
+      <div className="incart-page-container">
+         <div className="container">
+            <div className="cart-top-info">
+               <h3>Total items in cart: (<strong>{cart.length}</strong>)</h3>
+               <h3>Total amount: (<strong>{totalAmount} EUR</strong>)</h3>
+            </div>
+            <CartsContainer />
+         </div>
+      </div >
    )
 }
 
-// const mapStateToProps = state => ({
-//    cart: state.inCartData.cart,
-//    totalAmout: state.inCartData.totalAmout
-// })
-// const mapDispatchToProps = ({
-//    deleteCurrentPhoneCart: deleteCurrentPhoneCart,
-//    clearCurrentCart: clearCurrentCart
-// })
+const mapStateToProps = state => ({
+   cart: state.inCartData.cart,
+   totalAmout: state.inCartData.totalAmout
+})
 
-export default connect(null, null)(InCartPage);
+InCartPage.propTypes = {
+   cart: PropTypes.array,
+   totalAmount: PropTypes.number
+}
+
+export default connect(mapStateToProps, null)(InCartPage);

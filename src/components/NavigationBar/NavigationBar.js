@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -29,5 +30,9 @@ const NavigationBar = (props) => {
 const mapStateToProps = state => ({
    cart: state.inCartData.cart
 })
+
+NavigationBar.propTypes = {
+   cart: PropTypes.array
+}
 
 export default connect(mapStateToProps, null)(NavigationBar);

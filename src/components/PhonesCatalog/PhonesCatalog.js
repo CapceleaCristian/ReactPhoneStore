@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { getPhoneInfo, getBrandName } from '../../store/actions/fetchDataAction';
-import { SearchBar } from '../SearchBar';
 import { BarSelectionBrands } from '../BarSelectionBrands';
-import { PhonesListing } from './PhonesListing';
 import { BarSelectionProperties } from '../BarSelectionProperties';
+import { PhonesListing } from './PhonesListing';
+import { SearchBar } from '../SearchBar';
 import './PhonesCatalog.scss';
 
 const PhonesCatalog = (props) => {
@@ -29,7 +30,7 @@ const PhonesCatalog = (props) => {
                <BarSelectionBrands />
                <div className="phones-list">
                   <div className="current-target-container">
-                     <h3> <span disabled className="brandname-styled">{brandName}</span>  : Current Target </h3>
+                     <h3> <span disabled className="brandname-styled">{brandName}</span> : Current Target </h3>
                   </div>
                   <PhonesListing currentItems={items} isLoading={isLoading} />
                </div>
@@ -50,5 +51,12 @@ const mapDispatchToProps = ({
    onFetch: getPhoneInfo,
    brandHandler: getBrandName
 })
+
+PhonesCatalog.propTypes = {
+   items: PropTypes.array,
+   brandName: PropTypes.string,
+   onFetch: PropTypes.func,
+   isLoading: PropTypes.bool
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhonesCatalog);

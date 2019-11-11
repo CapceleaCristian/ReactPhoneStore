@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import stringSimilarity from 'string-similarity';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -7,7 +8,7 @@ import { requestImages } from '../../../store/actions/fetchImagesAction';
 import { addPhoneToCart } from '../../../store/actions/inCartAction';
 import './PhoneDetailsSingle.scss';
 
-const Phone = (props) => {
+const PhoneDetailsSingle = (props) => {
 
    const { phonesInfo, onImgFetch, addPhoneToCart, match } = props;
    const { images } = props.images;
@@ -75,11 +76,23 @@ const mapStateToProps = (state) => ({
    phonesInfo: state.phonesData.data,
    brandName: state.phonesData.brand,
    cart: state.inCartData.cart
-});
+})
 
 const mapDispatchToProps = ({
    onImgFetch: requestImages,
    addPhoneToCart: addPhoneToCart
-});
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Phone);
+PhoneDetailsSingle.propTypes = {
+   location: PropTypes.object,
+   phone: PropTypes.object,
+   phonesInfo: PropTypes.object,
+   onImgFetch: PropTypes.object,
+   addPhoneToCart: PropTypes.func,
+   match: PropTypes.string,
+   images: PropTypes.array,
+   nameToMatch: PropTypes.string,
+   currentPhone: PropTypes.object
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PhoneDetailsSingle);

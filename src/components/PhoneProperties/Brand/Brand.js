@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { phoneTypeBrands } from '../../../utils/data';
@@ -42,6 +43,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
    brandHandler: getBrandName,
    onFetch: getPhoneInfo
+}
+
+Brand.propTypes = {
+   brandHandler: PropTypes.func,
+   onFetch: PropTypes.func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Brand);

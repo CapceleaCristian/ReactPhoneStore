@@ -1,5 +1,6 @@
 import React, { useState, } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { getBrandName, getPhoneInfo } from '../../store/actions/fetchDataAction';
 import './SearchBar.scss';
@@ -42,5 +43,10 @@ const mapDispatchToProps = ({
    brandHandler: getBrandName,
    onFetch: getPhoneInfo
 });
+
+SearchBar.propTypes = {
+   brandHandler: PropTypes.func,
+   onFetch: PropTypes.func
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

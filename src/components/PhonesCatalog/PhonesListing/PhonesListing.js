@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import './PhonesListing.scss';
@@ -23,6 +24,11 @@ const PhonesListing = (props) => {
                </div>)}
       </div>
    )
+}
+
+PhonesListing.propTypes = {
+   isLoading: PropTypes.bool,
+   currentItems: PropTypes.array
 }
 
 export default PhonesListing;
