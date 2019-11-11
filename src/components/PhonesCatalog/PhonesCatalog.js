@@ -1,44 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import { requestData, getBrandName } from '../../redux/actions/fetchDataAction';
-import SearchBar from '../SearchBar/SearchBar';
-import BarSelectionBrands from '../BarSelectionBrands/BarSelectionBrands';
-import PhonesListing from './PhonesListing/PhonesListing';
-import BarSelectionProperties from '../BarSelectionProperties/BarSelectionProperties';
+import { getPhoneInfo, getBrandName } from '../../store/actions/fetchDataAction';
+import { SearchBar } from '../SearchBar';
+import { BarSelectionBrands } from '../BarSelectionBrands';
+import { PhonesListing } from './PhonesListing';
+import { BarSelectionProperties } from '../BarSelectionProperties';
 import './PhonesCatalog.scss';
 
 const PhonesCatalog = (props) => {
    // Props
-   const { brandName } = props;
-   const { items } = props;
+   const { items, brandName } = props;
    // Functions
    const { onFetch, isLoading, brandHandler } = props;
-   const [searchInput, setSearchInput] = useState('');
-   let currentItems = [];
 
    useEffect(() => {
       onFetch();
    }, [onFetch]);
 
-   if (items && items.length > 0) {
-      currentItems = items.filter(i => i.DeviceName.toLowerCase().includes(searchInput.toLowerCase()));
-   }
-
    return (
       <div className="phones-container">
          <div className="container">
             <h4 className="phones-title">
-               Total number of smartphones on page: ({currentItems.length})
+               Total number of smartphones on page: ({isLoading !== false ? 'Is loading...' : items.length})
             </h4>
-            <SearchBar searchInput={searchInput} setSearchInput={setSearchInput} />
+            <SearchBar />
             <div className="phones-inner">
                <BarSelectionBrands />
                <div className="phones-list">
                   <div className="current-target-container">
                      <h3> <span disabled className="brandname-styled">{brandName}</span>  : Current Target </h3>
                   </div>
-                  <PhonesListing currentItems={currentItems} />
+                  <PhonesListing currentItems={items} isLoading={isLoading} />
                </div>
                <BarSelectionProperties />
             </div>
@@ -54,7 +47,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = ({
-   onFetch: requestData,
+   onFetch: getPhoneInfo,
    brandHandler: getBrandName
 })
 

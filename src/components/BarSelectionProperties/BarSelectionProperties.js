@@ -1,9 +1,6 @@
 import React from 'react';
-import Battery from '../BarSelectionProperties/Battery/Battery';
-import Camera from '../BarSelectionProperties/Camera/Camera';
-import Memory from '../BarSelectionProperties/Memory/Memory';
-import Dimension from '../BarSelectionProperties/Dimension/Dimension';
 
+import { Battery, Camera, Memory, Dimension } from '../PhoneProperties';
 import './BarSelectionProperties.scss';
 
 const BarSelectionProperties = () => {

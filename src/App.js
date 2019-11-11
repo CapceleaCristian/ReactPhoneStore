@@ -1,13 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+import { NavigationBar, PhonesCatalog, PhoneDetailsSingle, } from './components';
+import { HomePage, NoMatchPage, InCartPage } from './pages';
 import './App.scss';
-import NavigationBar from './components/NavigationBar/NavigationBar';
-import Home from './components/Home/Home';
-import PhonesCatalog from './components/PhonesCatalog/PhonesCatalog';
-import PhoneDetailsSingle from './components/PhonesCatalog/PhoneDetailsSingle/PhoneDetailsSingle';
-import InCart from './components/InCart/InCart';
-import NoMatchPage from './components/NoMatchPage/NoMatch';
+
 
 const App = () => {
   return (
@@ -15,10 +12,10 @@ const App = () => {
       <Router>
         <NavigationBar />
         <Switch>
-          <Route path="/" component={Home} exact />
+          <Route path="/" component={HomePage} exact />
           <Route path="/phones" component={PhonesCatalog} exact />
           <Route path="/phones/:brand" component={PhoneDetailsSingle} exact />
-          <Route path="/in-cart" component={InCart} />
+          <Route path="/in-cart" component={InCartPage} />
           <Route component={NoMatchPage} />
         </Switch>
       </Router>

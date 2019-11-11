@@ -1,11 +1,24 @@
-@import '../../styles/colorVariables.scss';
+@import '../../styles/pallete.scss';
 
-.searchbar-container{
+.searchbar-container {
+    position: relative;
     margin: 20px 0;
     text-align: center;
-    input{
+
+    input {
         padding: 5px 10px;
         width: 100%;
         border: 3px solid $mainDarkBlue;
     }
+}
+
+.searchbar-results {
+    display: none;
+    position: absolute;
+    top: 95%;
+    height: 500px;
+    background-color: $white;
+    border: 3px solid $mainDarkBlue;
+    width: 100%;
+    overflow: auto;
 }

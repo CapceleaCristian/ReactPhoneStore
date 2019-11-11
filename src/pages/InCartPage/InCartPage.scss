@@ -1,0 +1,99 @@
+@import '../../styles/pallete.scss';
+
+.cart-top-info{
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  margin-bottom: 15px;
+}
+.incart-page-container{
+    padding: 75px 0;
+}
+.products-carts-container{
+  padding: 20px 0;
+}
+.product-cart{
+  position: relative;
+  min-height: 550px;
+  border-radius: 15px;
+  background-color: $extraLightGrey;
+  border: 3px solid $mainDarkBlue;
+  text-align: center;
+  margin-bottom: 30px;
+  transition: all 0.3s ease-in-out;
+  &:hover{
+    -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 89, 255, 0.75);
+    -moz-box-shadow: 0px 0px 14px 0px rgba(0, 89, 255, 0.75)  ;
+      box-shadow: 0px 0px 14px 0px rgba(0, 89, 255, 0.75) ;
+      button{
+        transform: rotate(360deg);
+      }
+    }
+}
+.product-cart-info{
+  padding: 50px 0;
+  img{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+.product-discard{
+  position: absolute;
+  right: 15px;
+  top: 5px;
+    button{
+      color: $mainDarkBlue;
+      border: none;
+      background-color: transparent;
+      font-size: 30px;
+      transition: all 1s ease-in-out;
+      &:focus{
+        outline: none;
+      }
+    }
+}
+
+.cart-total-discard{
+  .cart-no-items{
+    display: flex;
+    font-size: 30px;
+      p{
+        margin-top: 200px;
+      }
+    }
+    .btn-discart-all{
+      text-align: right;
+      button{
+        background-color: $white;
+        width: 31.5%;
+        border: 3px solid $mainDarkBlue;
+        padding: 5px 30px;
+        color: $mainDarkBlue;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+        background-color: #FFD700;
+        color: $mainDarkBlue;
+        }
+      }
+  }
+}
+.products-order{
+  text-align: center;
+    .btn-products-order{
+      button{
+        font-size: 20px;
+        width: 50%;
+        background-color: $white;
+        border: 3px solid $mainDarkBlue;
+        padding: 5px 30px;
+        color: $mainDarkBlue;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+        &:hover{
+        background-color: #FFD700;
+        color: $mainDarkBlue;
+      }
+    }
+  }
+}

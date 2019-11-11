@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Brand from './Brand/Brand';
+import { Brand } from '../PhoneProperties';
 import './BarSelectionBrands.scss';
 
 const BarSelectionBrands = () => {

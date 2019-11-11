@@ -1,65 +1,77 @@
-@import '../../../styles/colorVariables.scss';
+@import '../../../styles/pallete.scss';
 
-.phone-container{
-    margin-top: 50px;
+.phone-container {
+    margin-top: 55px;
     padding: 25px 0;
-    .phone-details-intro{
+
+    .phone-details-intro {
         font-size: 30px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding-bottom: 25px;
         border-bottom: 1px solid $lightGrey;
-        .phone-back{
-            font-size: 20px;
-            p{
-                padding: 10px 20px;
-                text-align: center;
-                width: 100%;
-                background-color: $mainDarkBlue;
-                color: $white;
-            }
-        }
-    }
-    .phone-details{
-        margin: 15px 0;
-    }
-}
-.phone-inner{
-    display: flex;
-    justify-content: space-between;
-    margin: 15px 0;
-    
-}
-.phone-img{
-    .device-purchase-details{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .btn-addcart{
+
+        .phone-back {
+            font-size: 16px;
             padding: 10px 35px;
             color: $white;
             background-color: $mainDarkBlue;
             transition: all 0.3s ease-in-out;
             border: none;
-            
-            &:hover{
+
+            &:hover {
                 background-color: $goldMain;
                 color: $white;
             }
         }
     }
-.price-amount{
-    font-size: 23px;
-    span{
-        font-weight: 700;
+
+    .phone-details {
+        margin: 15px 0;
     }
 }
-    img{
+
+.phone-inner {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+
+}
+
+.phone-img {
+    .device-purchase-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .btn-addcart {
+            padding: 10px 35px;
+            color: $white;
+            background-color: $mainDarkBlue;
+            transition: all 0.3s ease-in-out;
+            border: none;
+
+            &:hover {
+                background-color: $goldMain;
+                color: $white;
+            }
+        }
+    }
+
+    .price-amount {
+        font-size: 23px;
+
+        span {
+            font-weight: 700;
+        }
+    }
+
+    img {
         background-color: #000;
         border-top-left-radius: 100px;
         border-bottom-left-radius: 100px;
-        border: 3px solid $mainDarkBlue ;
+        border: 3px solid $mainDarkBlue;
         margin: 15px 0;
         width: 500px;
     }

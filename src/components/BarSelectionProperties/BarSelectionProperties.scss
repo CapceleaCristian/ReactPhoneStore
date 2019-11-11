@@ -1,4 +1,4 @@
-@import '../../styles/colorVariables.scss';
+@import '../../styles/pallete.scss';
 
 .bar-selection-properties{
     padding-left: 30px;
@@ -10,7 +10,7 @@
     border-bottom: 2px solid $mainDarkBlue;
 }
 .properties-inner{
-    padding: 15px 0;
+    padding: 10px 0;
 }
 
 // General border bottom
@@ -19,5 +19,5 @@
     padding-bottom: 10px;
 }
 .phones-properties-list{
-    padding: 10px 0;
+    padding: 7px 0;
 }

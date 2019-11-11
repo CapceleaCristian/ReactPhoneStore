@@ -1,30 +1,28 @@
-@import '../../styles/colorVariables.scss';
+@import '../../styles/pallete.scss';
 
-.phones-container{
-    margin-top: 70px;
-    .phones-inner{
+.phones-container {
+    margin-top: 80px;
+    .phones-inner {
         display: flex;
-        .phones-list{
+        .phones-list {
             padding: 15px 40px;
         }
     }
 }
-.phones-title{
-    text-align : right;
+.phones-title {
+    text-align: right;
 }
-
-.isloading-text{
+.isloading-text {
     padding: 10px 0;
     text-align: center;
 }
-.brandname-styled{
+.brandname-styled {
     color: $white;
     padding: 4px 50px;
     background-color: $mainDarkBlue;
-   
-;}
-.current-target-container{
-    h3{
+}
+.current-target-container {
+    h3 {
         -moz-user-select: none;
         -khtml-user-select: none;
         -webkit-user-select: none;

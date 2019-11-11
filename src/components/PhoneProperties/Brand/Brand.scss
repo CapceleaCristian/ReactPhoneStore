@@ -1,0 +1,22 @@
+.phones-brands{
+    padding: 7px 0;
+    li.phones-item{
+        cursor: pointer;
+        &:hover{
+            font-weight: bold;
+        }
+    }
+}
+.phones-brand-model{
+    border-bottom: 1px solid #dbdbdb;
+    padding: 7px 0;
+    .phones-name-title{
+        font-size: 20px;
+        font-weight: 400;
+        cursor: pointer;
+        &:hover{
+            font-weight: 500;
+        }
+    }
+    
+}

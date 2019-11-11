@@ -1,0 +1,14 @@
+// Fetching data from API
+export const API_PHONE_INFO_SUCCESS = 'API_PHONE_INFO_SUCCESS';
+export const API_PHONE_INFO_REQUEST = 'API_PHONE_INFO_REQUEST';
+export const API_PHONE_INFO_ERROR = 'API_PHONE_INFO_ERROR';
+
+// -----------------------------
+export const REQUEST_IMAGES = 'REQUEST_IMAGES';
+export const FETCH_IMAGES_SUCCESS = 'FETCH_IMAGES_SUCCESS';
+
+// GETTING THE BRAND NAME
+export const GET_BRAND_NAME = 'GET_BRAND_NAME';
+
+// ADDING TO CART
+export const ADD_PHONE_TO_CART = 'ADD_PHONE_TO_CART';

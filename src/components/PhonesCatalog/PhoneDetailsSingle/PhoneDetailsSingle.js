@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import stringSimilarity from 'string-similarity';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { requestImages } from '../../../redux/actions/fetchImagesAction';
-// import { noImg } from '../../../assets/services/constants';
+import { requestImages } from '../../../store/actions/fetchImagesAction';
+import { addPhoneToCart } from '../../../store/actions/inCartAction';
 import './PhoneDetailsSingle.scss';
 
 const Phone = (props) => {
-   const { onImgFetch } = props;
-   const phoneDetails = props.location.phone.info[0];
+
+   const { phonesInfo, onImgFetch, addPhoneToCart, match, cart } = props;
    const { images } = props.images;
-   const { brandName } = props;
+
+   const nameToMatch = match.params.brand;
+   const matches = stringSimilarity.findBestMatch(nameToMatch, phonesInfo.map(phoneInfo => phoneInfo.DeviceName).concat(''));
+   const phoneDetails = phonesInfo[matches.bestMatchIndex] || {};
 
    const phoneDeviceName = phoneDetails.DeviceName;
    const items = Object.keys(phoneDetails).map((key, index) =>
@@ -29,10 +33,15 @@ const Phone = (props) => {
    const randomPrice = `${Math.ceil(Math.random() * 150)} EUR (random)`;
    let devicePrice = 0;
    if (phoneDetails.price) {
-      devicePrice = phoneDetails.price;
+      devicePrice = `${(phoneDetails.price).split('/').slice(0, 1).join().split(';').slice(2)} EUR`;
    }
    else {
       devicePrice = randomPrice;
+   }
+
+   const addInCartHandle = () => {
+      let currentPhone = props.location.phone;
+      addPhoneToCart([currentPhone]);
    }
 
    return (
@@ -40,7 +49,7 @@ const Phone = (props) => {
          <div className="container">
             <div className="phone-details-intro">
                <Link className="phone-back" to="/phones">
-                  <p>Back to All Phones</p>
+                  <p> <i className="fas fa-chevron-left" /> Back to All Phones</p>
                </Link>
                <h3>Page details for: <span>{phoneDeviceName}</span> </h3>
             </div>
@@ -51,7 +60,7 @@ const Phone = (props) => {
                <div className="phone-img">
                   <div className="device-purchase-details" >
                      <p className="price-amount"> Device price: <span>{devicePrice}</span> </p>
-                     <button className="btn-addcart"> Add to Cart </button>
+                     <button className="btn-addcart" onClick={addInCartHandle}>  Add to Cart </button>
                   </div>
                   {images ? <img src={images[randomNum]} /> : <h3>No Img...</h3>}
                </div>
@@ -63,11 +72,14 @@ const Phone = (props) => {
 
 const mapStateToProps = (state) => ({
    images: state.imagesData,
-   brandName: state.phonesData.brand
+   phonesInfo: state.phonesData.data,
+   brandName: state.phonesData.brand,
+   cart: state.inCartData.cart
 });
 
 const mapDispatchToProps = ({
-   onImgFetch: requestImages
+   onImgFetch: requestImages,
+   addPhoneToCart: addPhoneToCart
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Phone);
