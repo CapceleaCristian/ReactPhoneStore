@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import stringSimilarity from 'string-similarity';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -7,9 +8,9 @@ import { requestImages } from '../../../store/actions/fetchImagesAction';
 import { addPhoneToCart } from '../../../store/actions/inCartAction';
 import './PhoneDetailsSingle.scss';
 
-const Phone = (props) => {
+const PhoneDetailsSingle = (props) => {
 
-   const { phonesInfo, onImgFetch, addPhoneToCart, match, cart } = props;
+   const { phonesInfo, onImgFetch, addPhoneToCart, match } = props;
    const { images } = props.images;
 
    const nameToMatch = match.params.brand;
@@ -25,19 +26,7 @@ const Phone = (props) => {
       onImgFetch();
    }, [onImgFetch]);
 
-   let randomNum = 0;
-   if (images) {
-      randomNum = Math.ceil(Math.random() * (images.length - 1));
-   }
-
-   const randomPrice = `${Math.ceil(Math.random() * 150)} EUR (random)`;
-   let devicePrice = 0;
-   if (phoneDetails.price) {
-      devicePrice = `${(phoneDetails.price).split('/').slice(0, 1).join().split(';').slice(2)} EUR`;
-   }
-   else {
-      devicePrice = randomPrice;
-   }
+   const randomImageSrc = images.length ? images[Math.floor(Math.random() * images.length)] : null;
 
    const addInCartHandle = () => {
       let currentPhone = props.location.phone;
@@ -59,10 +48,10 @@ const Phone = (props) => {
                </div>
                <div className="phone-img">
                   <div className="device-purchase-details" >
-                     <p className="price-amount"> Device price: <span>{devicePrice}</span> </p>
+                     <p className="price-amount"> Device price: <span></span> </p>
                      <button className="btn-addcart" onClick={addInCartHandle}>  Add to Cart </button>
                   </div>
-                  {images ? <img src={images[randomNum]} /> : <h3>No Img...</h3>}
+                  {images ? <img src={randomImageSrc} alt="img" /> : <h3>No Img...</h3>}
                </div>
             </div>
          </div>
@@ -75,11 +64,23 @@ const mapStateToProps = (state) => ({
    phonesInfo: state.phonesData.data,
    brandName: state.phonesData.brand,
    cart: state.inCartData.cart
-});
+})
 
 const mapDispatchToProps = ({
    onImgFetch: requestImages,
    addPhoneToCart: addPhoneToCart
-});
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Phone);
+PhoneDetailsSingle.propTypes = {
+   location: PropTypes.object,
+   phone: PropTypes.object,
+   phonesInfo: PropTypes.array,
+   onImgFetch: PropTypes.func,
+   addPhoneToCart: PropTypes.func,
+   match: PropTypes.object,
+   images: PropTypes.object,
+   nameToMatch: PropTypes.string,
+   currentPhone: PropTypes.object
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PhoneDetailsSingle);

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { phoneTypeBrands } from '../../../utils/data';
@@ -7,7 +8,7 @@ import './Brand.scss';
 
 const Brand = (props) => {
 
-   const { brandName, brandHandler, onFetch } = props;
+   const { brandHandler, onFetch } = props;
 
    const getBrand = (e) => {
       const value = e.currentTarget.innerText;
@@ -42,6 +43,11 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
    brandHandler: getBrandName,
    onFetch: getPhoneInfo
+}
+
+Brand.propTypes = {
+   brandHandler: PropTypes.func,
+   onFetch: PropTypes.func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Brand);

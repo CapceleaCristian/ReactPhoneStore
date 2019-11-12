@@ -1,13 +1,13 @@
 import React, { useState, } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import { getBrandName, getPhoneInfo } from '../../store/actions/fetchDataAction';
 import './SearchBar.scss';
 
 const SearchBar = (props) => {
 
-   const { brandName, brandHandler, onFetch } = props;
-
+   const { brandHandler, onFetch } = props;
    const [searchInput, setSearchInput] = useState('');
 
    const onChangeHandler = (e) => {
@@ -15,7 +15,7 @@ const SearchBar = (props) => {
    }
 
    const handleEnterPress = (e) => {
-      if (e.which == 13) {
+      if (e.which === 13) {
          brandHandler(searchInput);
          onFetch();
          setSearchInput('');
@@ -43,5 +43,10 @@ const mapDispatchToProps = ({
    brandHandler: getBrandName,
    onFetch: getPhoneInfo
 });
+
+SearchBar.propTypes = {
+   brandHandler: PropTypes.func,
+   onFetch: PropTypes.func
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
