@@ -3,7 +3,7 @@ import './HomePage.scss';
 
 import { arrIMG } from '../../assets/resources/imagesURL';
 
-const randomNum = (Math.random() * 9).toFixed();
+const randomNum = Math.floor(Math.random() * arrIMG.length);
 
 const HomePage = () => {
    return (
@@ -12,7 +12,7 @@ const HomePage = () => {
          <img
             draggable="false"
             src={arrIMG[randomNum]}
-            alt=""
+            alt="img"
          />
       </div>
    )

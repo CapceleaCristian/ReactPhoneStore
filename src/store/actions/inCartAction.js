@@ -10,7 +10,6 @@ export const deleteCurrentPhoneCart = (payload) => ({
     payload
 })
 
-export const clearCurrentCart = (payload) => ({
-    type: CLEAR_CURRENT_CART,
-    payload
+export const clearCurrentCart = () => ({
+    type: CLEAR_CURRENT_CART
 })

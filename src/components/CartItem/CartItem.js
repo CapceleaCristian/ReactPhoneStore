@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 const CartItem = (props) => {
 
    const testIMG = 'https://s.abcnews.com/images/Technology/samsung-phone-gty-jpo-190423_hpMain_16x9_992.jpg';
-   const { deleteCartHandler, product, index } = props;
+   const { deleteCartItemHandler, product, index } = props;
 
    return (
       <div className="product-cart">
          <div className="product-discard">
-            <button onClick={() => deleteCartHandler(product, index)} >
+            <button onClick={() => deleteCartItemHandler(product, index)} >
                <i className="fas fa-times" />
             </button>
          </div>
@@ -29,7 +29,7 @@ const CartItem = (props) => {
 }
 
 CartItem.propTypes = {
-   deleteCartHandler: PropTypes.func,
+   deleteCartItemHandler: PropTypes.func,
    product: PropTypes.object,
    index: PropTypes.number
 }

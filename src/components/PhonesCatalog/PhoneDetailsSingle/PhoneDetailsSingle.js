@@ -26,19 +26,7 @@ const PhoneDetailsSingle = (props) => {
       onImgFetch();
    }, [onImgFetch]);
 
-   let randomNum = 0;
-   if (images) {
-      randomNum = Math.ceil(Math.random() * (images.length - 1));
-   }
-
-   const randomPrice = `${Math.ceil(Math.random() * 150)} EUR (random)`;
-   let devicePrice = 0;
-   if (phoneDetails.price) {
-      devicePrice = `${(phoneDetails.price).split('/').slice(0, 1).join().split(';').slice(2)} EUR`;
-   }
-   else {
-      devicePrice = randomPrice;
-   }
+   const randomImageSrc = images.length ? images[Math.floor(Math.random() * images.length)] : null;
 
    const addInCartHandle = () => {
       let currentPhone = props.location.phone;
@@ -60,10 +48,10 @@ const PhoneDetailsSingle = (props) => {
                </div>
                <div className="phone-img">
                   <div className="device-purchase-details" >
-                     <p className="price-amount"> Device price: <span>{devicePrice}</span> </p>
+                     <p className="price-amount"> Device price: <span></span> </p>
                      <button className="btn-addcart" onClick={addInCartHandle}>  Add to Cart </button>
                   </div>
-                  {images ? <img src={images[randomNum]} alt="" /> : <h3>No Img...</h3>}
+                  {images ? <img src={randomImageSrc} alt="img" /> : <h3>No Img...</h3>}
                </div>
             </div>
          </div>

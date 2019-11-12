@@ -13,25 +13,25 @@ const CartsContainer = (props) => {
    const { cart, deleteCurrentPhoneCart, clearCurrentCart } = props;
 
    const clearCartHandler = () => {
-      clearCurrentCart([]);
+      clearCurrentCart();
    }
 
-   const deleteCartHandler = (product, indexItem) => {
-      let filtered = cart.filter((item, index) => index !== indexItem);
-      deleteCurrentPhoneCart(filtered);
+   const deleteCartItemHandler = (_, indexItem) => {
+      console.log(indexItem)
+      deleteCurrentPhoneCart(indexItem);
    }
 
    return (
       <React.Fragment>
          <div className="cart-total-discard">
-            {cart.length === 0 ?
+            {cart.length ?
+               <div className="btn-discart-all">
+                  <button onClick={() => clearCartHandler(cart)} >Discart All Products</button>
+               </div>
+               :
                <div className="cart-no-items">
                   <img src={confusedIMG} alt="" />
                   <p>Where are items ?</p>
-               </div>
-               :
-               <div className="btn-discart-all">
-                  <button onClick={() => clearCartHandler(cart)} >Discart All Products</button>
                </div>}
          </div>
          <div className="products-carts-container">
@@ -39,7 +39,7 @@ const CartsContainer = (props) => {
                {cart.map((product, index) =>
                   <div className="col-md-4" key={index}>
                      <CartItem
-                        deleteCartHandler={deleteCartHandler}
+                        deleteCartItemHandler={deleteCartItemHandler}
                         product={product}
                         index={index}
                      />
@@ -47,9 +47,7 @@ const CartsContainer = (props) => {
             </div>
          </div>
          <div className="products-order">
-            {cart.length === 0 ?
-               <div></div>
-               :
+            {!!cart.length &&
                <div className="btn-products-order">
                   <Link to='/orders'>
                      <button>Order Now ?</button>
@@ -64,10 +62,11 @@ const mapStateToProps = state => ({
    cart: state.inCartData.cart,
    totalAmount: state.inCartData.totalAmount
 })
-const mapDispatchToProps = ({
+
+const mapDispatchToProps = {
    deleteCurrentPhoneCart: deleteCurrentPhoneCart,
    clearCurrentCart: clearCurrentCart
-})
+}
 
 CartsContainer.propTypes = {
    cart: PropTypes.array,

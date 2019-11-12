@@ -15,12 +15,13 @@ export default function (state = initialState, action) {
         case DELETE_CURRENT_PHONE_CART:
             return {
                 ...state,
-                cart: action.payload
+                cart: state.cart.filter((_, index) => index !== action.payload)
+
             }
         case CLEAR_CURRENT_CART:
             return {
                 ...state,
-                cart: action.payload
+                cart: []
             }
         default:
             return state
