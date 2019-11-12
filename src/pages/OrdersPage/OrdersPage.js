@@ -1,13 +1,18 @@
 import React from 'react';
+
+import { Orders } from '../../components/Orders';
 import './OrdersPage.scss';
 
 const OrdersPage = () => {
-    return (
-        <div className="myorders-container">
-            <div className="container">
-                <h3>Page with all orders!!</h3>
+   return (
+      <div className="orders-page-container">
+         <div className="container">
+            <div className="order-top-text">
+               <h3>User current orders:</h3>
             </div>
-        </div>
-    )
+            <Orders />
+         </div>
+      </div>
+   )
 }
 export default OrdersPage;
