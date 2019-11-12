@@ -1,7 +1,7 @@
 import React from 'react';
-import './Orders.scss';
+import './OrdersPage.scss';
 
-const Orders = () => {
+const OrdersPage = () => {
     return (
         <div className="myorders-container">
             <div className="container">
@@ -10,4 +10,4 @@ const Orders = () => {
         </div>
     )
 }
-export default Orders;
+export default OrdersPage;

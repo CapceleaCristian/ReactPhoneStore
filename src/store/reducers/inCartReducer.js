@@ -16,7 +16,6 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 cart: state.cart.filter((_, index) => index !== action.payload)
-
             }
         case CLEAR_CURRENT_CART:
             return {

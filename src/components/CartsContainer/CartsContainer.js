@@ -17,7 +17,6 @@ const CartsContainer = (props) => {
    }
 
    const deleteCartItemHandler = (_, indexItem) => {
-      console.log(indexItem)
       deleteCurrentPhoneCart(indexItem);
    }
 
@@ -26,7 +25,7 @@ const CartsContainer = (props) => {
          <div className="cart-total-discard">
             {cart.length ?
                <div className="btn-discart-all">
-                  <button onClick={() => clearCartHandler(cart)} >Discart All Products</button>
+                  <button onClick={() => clearCartHandler(cart)}>Discart All Products</button>
                </div>
                :
                <div className="cart-no-items">
