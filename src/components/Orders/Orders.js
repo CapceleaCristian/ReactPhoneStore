@@ -8,6 +8,7 @@ import './Orders.scss';
 const Orders = (props) => {
 
    const { currentOrders } = props;
+   console.log(currentOrders);
 
    return (
       <div className="orders-container">
@@ -35,7 +36,7 @@ const Orders = (props) => {
 }
 
 Orders.propsTypes = {
-   currentOrders: PropTypes.array
+   currentOrders: PropTypes.string
 }
 
 const mapStateToProps = state => ({
