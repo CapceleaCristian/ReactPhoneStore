@@ -48,7 +48,7 @@ const PhoneDetailsSingle = (props) => {
                </div>
                <div className="phone-img">
                   <div className="device-purchase-details" >
-                     <p className="price-amount"> Device price: <span></span> </p>
+                     <p className="price-amount"> Device price: <span>{phoneDetails.price ? phoneDetails.price : `No price`}</span> </p>
                      <button className="btn-addcart" onClick={addInCartHandle}>  Add to Cart </button>
                   </div>
                   {images ? <img src={randomImageSrc} alt="img" /> : <h3>No Img...</h3>}
