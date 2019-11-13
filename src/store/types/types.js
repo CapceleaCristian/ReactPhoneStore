@@ -1,7 +1,18 @@
-// Fetching data from API
+// SET RANDOM BRAND
+export const SET_RANDOM_BRAND = 'SET_RANDOM_BRAND';
+
+// Fetching multiple data from API
 export const API_PHONE_INFO_SUCCESS = 'API_PHONE_INFO_SUCCESS';
 export const API_PHONE_INFO_REQUEST = 'API_PHONE_INFO_REQUEST';
 export const API_PHONE_INFO_ERROR = 'API_PHONE_INFO_ERROR';
+
+// Store current match for future fetching
+export const STORE_CURRENT_MATCH = 'STORE_CURRENT_MATCH';
+
+// Fetching single data from API
+export const API_SINGLE_PHONE_INFO_REQUEST = 'API_SINGLE_PHONE_INFO_REQUEST';
+export const API_SINGLE_PHONE_INFO_SUCCESS = 'API_SINGLE_PHONE_INFO_SUCCESS';
+export const API_SINGLE_PHONE_INFO_ERROR = 'API_SINGLE_PHONE_INFO_ERROR';
 
 // -----------------------------
 export const REQUEST_IMAGES = 'REQUEST_IMAGES';

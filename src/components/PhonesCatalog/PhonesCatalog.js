@@ -2,20 +2,27 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { getPhoneInfo, getBrandName } from '../../store/actions/fetchDataAction';
+import { setRandomBrand, getPhoneInfo, getBrandName } from '../../store/actions/fetchDataAction';
 import { BarSelectionBrands } from '../BarSelectionBrands';
 import { BarSelectionProperties } from '../BarSelectionProperties';
 import { PhonesListing } from './PhonesListing';
 import { SearchBar } from '../SearchBar';
+import { phoneTypeBrands } from '../../utils/data';
 import './PhonesCatalog.scss';
 
 const PhonesCatalog = (props) => {
    // Props
    const { items, brandName } = props;
    // Functions
-   const { onFetch, isLoading } = props;
+   const { setRandomBrand, onFetch, isLoading } = props;
+
+   const loadRandomPhoneInfo = () => {
+      const randomPhone = Math.floor(Math.random() * phoneTypeBrands.length);
+      setRandomBrand(phoneTypeBrands[randomPhone]);
+   }
 
    useEffect(() => {
+      loadRandomPhoneInfo();
       onFetch();
    }, [onFetch]);
 
@@ -49,7 +56,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = ({
    onFetch: getPhoneInfo,
-   brandHandler: getBrandName
+   brandHandler: getBrandName,
+   setRandomBrand: setRandomBrand
 })
 
 PhonesCatalog.propTypes = {

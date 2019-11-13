@@ -1,37 +1,53 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import stringSimilarity from 'string-similarity';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { requestImages } from '../../../store/actions/fetchImagesAction';
 import { addPhoneToCart } from '../../../store/actions/inCartAction';
+import { storeCurrentMatch, getSinglePhoneInfo } from '../../../store/actions/fetchSingleItemAction';
+
 import './PhoneDetailsSingle.scss';
 
 const PhoneDetailsSingle = (props) => {
 
-   const { phonesInfo, onImgFetch, addPhoneToCart, match } = props;
+   const { singleItem, fetchSingleItem, isLoading, storeCurrentMatch, onImgFetch, addPhoneToCart, } = props;
    const { images } = props.images;
 
-   const nameToMatch = match.params.brand;
-   const matches = stringSimilarity.findBestMatch(nameToMatch, phonesInfo.map(phoneInfo => phoneInfo.DeviceName).concat(''));
-   const phoneDetails = phonesInfo[matches.bestMatchIndex] || {};
-
-   const phoneDeviceName = phoneDetails.DeviceName;
-   const items = Object.keys(phoneDetails).map((key, index) =>
-      <p key={index}> <strong>{key}</strong> - {phoneDetails[key]}</p>
+   const phoneDeviceName = singleItem.DeviceName;
+   const items = Object.keys(singleItem).map((key, index) =>
+      <p key={index}> <strong>{key}</strong> - {singleItem[key]}</p>
    );
 
+   const matchStoreHandler = () => {
+      const currentMatch = props.match.params.brand.split('_').join(' ');
+      storeCurrentMatch(currentMatch);
+   }
+
    useEffect(() => {
+      matchStoreHandler();
+      fetchSingleItem();
       onImgFetch();
-   }, [onImgFetch]);
+   }, [fetchSingleItem]);
 
    const randomImageSrc = images.length ? images[Math.floor(Math.random() * images.length)] : null;
 
    const addInCartHandle = () => {
-      let currentPhone = props.location.phone;
-      addPhoneToCart([currentPhone]);
+      addPhoneToCart(singleItem);
    }
+
+   const randomPrice = `${Math.floor(Math.random() * 500)} Eur - random`;
+
+   let productPrice = singleItem.price;
+   if (singleItem.price === undefined) {
+      productPrice = randomPrice
+   }
+   if (productPrice.includes(';&thinsp;')) {
+      productPrice = `${productPrice.split('/').slice(0, 1).join().split(';').slice(2, 3)} Eur`;
+   }
+
+   console.log(singleItem);
+   console.log(images);
 
    return (
       <div className="phone-container">
@@ -40,18 +56,18 @@ const PhoneDetailsSingle = (props) => {
                <Link className="phone-back" to="/phones">
                   <p> <i className="fas fa-chevron-left" /> Back to All Phones</p>
                </Link>
-               <h3>Page details for: <span>{phoneDeviceName}</span> </h3>
+               <h3>Page details for: <span>{isLoading ? 'Loading ...' : phoneDeviceName}</span> </h3>
             </div>
             <div className="phone-inner">
                <div className="phone-details">
-                  {items}
+                  {isLoading ? <h3>Loading...</h3> : items}
                </div>
                <div className="phone-img">
                   <div className="device-purchase-details" >
-                     <p className="price-amount"> Device price: <span>{phoneDetails.price ? phoneDetails.price : `No price`}</span> </p>
+                     <p className="price-amount"> Device price: <span>{isLoading ? 'Loading' : productPrice}</span> </p>
                      <button className="btn-addcart" onClick={addInCartHandle}>  Add to Cart </button>
                   </div>
-                  {images ? <img src={randomImageSrc} alt="img" /> : <h3>No Img...</h3>}
+                  {isLoading ? <h3>Loading...</h3> : <img src={randomImageSrc} alt="img" />}
                </div>
             </div>
          </div>
@@ -63,12 +79,17 @@ const mapStateToProps = (state) => ({
    images: state.imagesData,
    phonesInfo: state.phonesData.data,
    brandName: state.phonesData.brand,
-   cart: state.inCartData.cart
+   cart: state.inCartData.cart,
+   currentMatchStore: state.singlePhone.currentMatch,
+   singleItem: state.singlePhone.singleItem,
+   isLoading: state.singlePhone.isLoading
 })
 
 const mapDispatchToProps = ({
    onImgFetch: requestImages,
-   addPhoneToCart: addPhoneToCart
+   addPhoneToCart: addPhoneToCart,
+   fetchSingleItem: getSinglePhoneInfo,
+   storeCurrentMatch: storeCurrentMatch,
 })
 
 PhoneDetailsSingle.propTypes = {

@@ -1,8 +1,9 @@
 @import '../../styles/pallete.scss';
 
 .bar-selection-properties{
-    padding-left: 30px;
+    padding-left: 35px;
     border-left: 3px solid $mainDarkBlue;
+    min-width: 300px;
     margin-left: auto;
 }
 .properties-top-text{
