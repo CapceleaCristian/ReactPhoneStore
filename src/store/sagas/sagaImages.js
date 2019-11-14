@@ -12,7 +12,7 @@ function reqImages(brandName) {
 function* fetchImages() {
     const getBrand = yield select();
     const brandName = getBrand.singlePhone.currentMatch;
-    yield console.log(brandName);
+
     const images = yield call(reqImages, brandName)
     yield put({
         type: FETCH_IMAGES_SUCCESS,

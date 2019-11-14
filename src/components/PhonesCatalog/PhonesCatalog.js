@@ -11,20 +11,18 @@ import { phoneTypeBrands } from '../../utils/data';
 import './PhonesCatalog.scss';
 
 const PhonesCatalog = (props) => {
-   // Props
-   const { items, brandName } = props;
-   // Functions
-   const { setRandomBrand, onFetch, isLoading } = props;
+
+   const { items, brandName, setRandomBrand, onFetch, isLoading } = props;
 
    const loadRandomPhoneInfo = () => {
-      const randomPhone = Math.floor(Math.random() * phoneTypeBrands.length);
-      setRandomBrand(phoneTypeBrands[randomPhone]);
+      const randomPhoneBrandIndex = Math.floor(Math.random() * phoneTypeBrands.length);
+      setRandomBrand(phoneTypeBrands[randomPhoneBrandIndex]);
    }
 
    useEffect(() => {
       loadRandomPhoneInfo();
       onFetch();
-   }, [onFetch]);
+   }, []);
 
    return (
       <div className="phones-container">
@@ -52,13 +50,13 @@ const mapStateToProps = state => ({
    items: state.phonesData.data,
    isLoading: state.phonesData.isLoading,
    brandName: state.phonesData.brand
-});
+})
 
-const mapDispatchToProps = ({
+const mapDispatchToProps = {
    onFetch: getPhoneInfo,
    brandHandler: getBrandName,
    setRandomBrand: setRandomBrand
-})
+}
 
 PhonesCatalog.propTypes = {
    items: PropTypes.array,

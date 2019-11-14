@@ -15,9 +15,8 @@ const PhoneDetailsSingle = (props) => {
    const { images } = props.images;
 
    const phoneDeviceName = singleItem.DeviceName;
-   const items = Object.keys(singleItem).map((key, index) =>
-      <p key={index}> <strong>{key}</strong> - {singleItem[key]}</p>
-   );
+   const itemProperties = Object.keys(singleItem).map((key, index) =>
+      <p key={index}> <strong>{key}</strong> - {singleItem[key]}</p>);
 
    const matchStoreHandler = () => {
       const currentMatch = props.match.params.brand.split('_').join(' ');
@@ -28,7 +27,7 @@ const PhoneDetailsSingle = (props) => {
       matchStoreHandler();
       fetchSingleItem();
       onImgFetch();
-   }, [fetchSingleItem]);
+   }, []);
 
    const randomImageSrc = images.length ? images[Math.floor(Math.random() * images.length)] : null;
 
@@ -37,17 +36,12 @@ const PhoneDetailsSingle = (props) => {
    }
 
    const randomPrice = `${Math.floor(Math.random() * 500)} Eur - random`;
+   let productPrice = singleItem.price || randomPrice;
 
-   let productPrice = singleItem.price;
-   if (singleItem.price === undefined) {
-      productPrice = randomPrice
-   }
+   // Products that have strange price datas, are processed with high order methods to output normal price, out of 3
    if (productPrice.includes(';&thinsp;')) {
       productPrice = `${productPrice.split('/').slice(0, 1).join().split(';').slice(2, 3)} Eur`;
    }
-
-   console.log(singleItem);
-   console.log(images);
 
    return (
       <div className="phone-container">
@@ -60,7 +54,7 @@ const PhoneDetailsSingle = (props) => {
             </div>
             <div className="phone-inner">
                <div className="phone-details">
-                  {isLoading ? <h3>Loading...</h3> : items}
+                  {isLoading ? <h3>Loading...</h3> : itemProperties}
                </div>
                <div className="phone-img">
                   <div className="device-purchase-details" >
@@ -85,12 +79,12 @@ const mapStateToProps = (state) => ({
    isLoading: state.singlePhone.isLoading
 })
 
-const mapDispatchToProps = ({
+const mapDispatchToProps = {
    onImgFetch: requestImages,
    addPhoneToCart: addPhoneToCart,
    fetchSingleItem: getSinglePhoneInfo,
    storeCurrentMatch: storeCurrentMatch,
-})
+}
 
 PhoneDetailsSingle.propTypes = {
    location: PropTypes.object,
@@ -101,7 +95,8 @@ PhoneDetailsSingle.propTypes = {
    match: PropTypes.object,
    images: PropTypes.object,
    nameToMatch: PropTypes.string,
-   currentPhone: PropTypes.object
+   currentPhone: PropTypes.object,
+   fetchSingleItem: PropTypes.func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhoneDetailsSingle);

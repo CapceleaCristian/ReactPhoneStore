@@ -8,7 +8,6 @@ import './Orders.scss';
 const Orders = (props) => {
 
    const { currentOrders } = props;
-   console.log(currentOrders);
 
    return (
       <div className="orders-container">
@@ -33,12 +32,12 @@ const Orders = (props) => {
    )
 }
 
-Orders.propsTypes = {
-   currentOrders: PropTypes.string
-}
-
 const mapStateToProps = state => ({
    currentOrders: state.inCartData.cart
 })
+
+Orders.propsTypes = {
+   currentOrders: PropTypes.string
+}
 
 export default connect(mapStateToProps, null)(Orders);
