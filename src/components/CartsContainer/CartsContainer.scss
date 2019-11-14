@@ -33,7 +33,7 @@
   min-height: 550px;
   border-radius: 15px;
   background-color: $extraLightGrey;
-  border: 3px solid $mainDarkBlue;
+  border: 3px solid $mainPurple;
   text-align: center;
   margin-bottom: 30px;
   transition: all 0.3s ease-in-out;
@@ -58,7 +58,7 @@
   right: 15px;
   top: 5px;
     button{
-      color: $mainDarkBlue;
+      color: $mainPurple;
       border: none;
       background-color: transparent;
       font-size: 30px;
@@ -82,14 +82,14 @@
       button{
         background-color: $white;
         width: 31.5%;
-        border: 3px solid $mainDarkBlue;
+        border: 3px solid $mainPurple;
         padding: 5px 30px;
-        color: $mainDarkBlue;
+        color: $mainPurple;
         font-weight: 500;
         transition: all 0.3s ease-in-out;
         &:hover{
         background-color: #FFD700;
-        color: $mainDarkBlue;
+        color: $mainPurple;
         }
       }
   }
@@ -101,14 +101,14 @@
         font-size: 20px;
         width: 50%;
         background-color: $white;
-        border: 3px solid $mainDarkBlue;
+        border: 3px solid $mainPurple;
         padding: 5px 30px;
-        color: $mainDarkBlue;
+        color: $mainPurple;
         font-weight: 500;
         transition: all 0.3s ease-in-out;
         &:hover{
         background-color: #FFD700;
-        color: $mainDarkBlue;
+        color: $mainPurple;
       }
     }
   }
