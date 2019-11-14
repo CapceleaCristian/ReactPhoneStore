@@ -4,9 +4,9 @@ import createSagaMiddleware from 'redux-saga';
 import rootReducer from './reducers';
 import { watchFetch } from './sagas/sagaItems';
 import { watchImages } from './sagas/sagaImages';
+import { watchSingleFetch } from './sagas/sagaSingleItem';
 
 const sagaMiddleware = createSagaMiddleware();
-
 const store = createStore(
     rootReducer,
     compose(
@@ -17,5 +17,6 @@ const store = createStore(
 
 sagaMiddleware.run(watchFetch);
 sagaMiddleware.run(watchImages);
+sagaMiddleware.run(watchSingleFetch);
 
 export default store;

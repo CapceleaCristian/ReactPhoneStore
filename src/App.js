@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { NavigationBar, PhonesCatalog, PhoneDetailsSingle, } from './components';
-import { HomePage, NoMatchPage, InCartPage, Orders } from './pages';
+import { HomePage, NoMatchPage, InCartPage, OrdersPage } from './pages';
 import './App.scss';
 
 
@@ -16,7 +16,7 @@ const App = () => {
           <Route path="/phones" component={PhonesCatalog} exact />
           <Route path="/phones/:brand" component={PhoneDetailsSingle} exact />
           <Route path="/cart" component={InCartPage} />
-          <Route path="/orders" component={Orders} />
+          <Route path="/orders" component={OrdersPage} />
           <Route component={NoMatchPage} />
         </Switch>
       </Router>

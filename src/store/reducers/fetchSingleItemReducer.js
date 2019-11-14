@@ -1,40 +1,35 @@
-import { SET_RANDOM_BRAND, API_PHONE_INFO_SUCCESS, GET_BRAND_NAME, API_PHONE_INFO_ERROR, API_PHONE_INFO_REQUEST } from '../types/types';
+import { STORE_CURRENT_MATCH, API_SINGLE_PHONE_INFO_REQUEST, API_SINGLE_PHONE_INFO_SUCCESS, API_SINGLE_PHONE_INFO_ERROR } from '../types/types';
 
 const initialState = {
-   data: [],
+   singleItem: {},
+   currentMatch: '',
    isLoading: null,
-   error: null,
-   brand: ''
+   error: null
 }
 
 export default function (state = initialState, action) {
    switch (action.type) {
-      case SET_RANDOM_BRAND:
+      case STORE_CURRENT_MATCH:
          return {
             ...state,
-            brand: action.payload
+            currentMatch: action.payload
          }
-      case API_PHONE_INFO_REQUEST:
+      case API_SINGLE_PHONE_INFO_REQUEST:
          return {
             ...state,
             isLoading: true
          }
-      case API_PHONE_INFO_SUCCESS:
+      case API_SINGLE_PHONE_INFO_SUCCESS:
          return {
             ...state,
-            data: action.payload.data,
+            singleItem: action.payload.singleItem,
             isLoading: false
          }
-      case API_PHONE_INFO_ERROR:
+      case API_SINGLE_PHONE_INFO_ERROR:
          return {
             ...state,
             error: action.payload,
             isLoading: false
-         }
-      case GET_BRAND_NAME:
-         return {
-            ...state,
-            brand: action.payload
          }
       default:
          return state;

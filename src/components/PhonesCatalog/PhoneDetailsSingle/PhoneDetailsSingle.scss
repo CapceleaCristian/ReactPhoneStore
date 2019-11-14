@@ -3,7 +3,6 @@
 .phone-container {
     margin-top: 55px;
     padding: 25px 0;
-
     .phone-details-intro {
         font-size: 30px;
         display: flex;
@@ -11,7 +10,6 @@
         align-items: center;
         padding-bottom: 25px;
         border-bottom: 1px solid $lightGrey;
-
         .phone-back {
             font-size: 16px;
             padding: 10px 35px;
@@ -19,46 +17,45 @@
             background-color: $mainDarkBlue;
             transition: all 0.3s ease-in-out;
             border: none;
-
             &:hover {
                 background-color: $goldMain;
                 color: $white;
             }
         }
+        span {
+            background-color: $mainDarkBlue;
+            color: white;
+            padding: 5px 40px;
+            margin-left: 15px;
+        }
     }
-
     .phone-details {
         margin: 15px 0;
     }
 }
-
 .phone-inner {
     display: flex;
     justify-content: space-between;
     margin: 15px 0;
 
 }
-
 .phone-img {
     .device-purchase-details {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
         .btn-addcart {
             padding: 10px 35px;
             color: $white;
             background-color: $mainDarkBlue;
             transition: all 0.3s ease-in-out;
             border: none;
-
             &:hover {
                 background-color: $goldMain;
                 color: $white;
             }
         }
     }
-
     .price-amount {
         font-size: 23px;
 
@@ -66,11 +63,9 @@
             font-weight: 700;
         }
     }
-
     img {
         background-color: #000;
         border-top-left-radius: 100px;
-        border-bottom-left-radius: 100px;
         border: 3px solid $mainDarkBlue;
         margin: 15px 0;
         width: 500px;

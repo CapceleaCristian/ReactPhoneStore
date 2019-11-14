@@ -1,9 +1,12 @@
 @import '../../styles/pallete.scss';
 
 .bar-selection-container{
+    overflow-y: scroll;
     padding: 10px 35px 0 0;
     font-size: 18px;
     border-right: 3px solid $mainDarkBlue;
+    min-width: 300px;
+    max-height: 100vh;
     }
 .brand-top-text{
     padding-bottom: 10px;

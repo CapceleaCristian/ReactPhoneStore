@@ -1,4 +1,4 @@
-import React from 'react';
+   import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ const PhonesListing = (props) => {
             currentItems.map((phoneInfo, index) =>
                <div key={index}>
                   <Link to={{
-                     pathname: `/phones/${phoneInfo.DeviceName.split(' ').join('-')}`,
+                     pathname: `/phones/${phoneInfo.DeviceName.split(' ').join('_')}`,
                      phone: phoneInfo
                   }}>
                      {phoneInfo.DeviceName}
