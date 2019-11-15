@@ -27,9 +27,11 @@ const PhonesCatalog = (props) => {
    return (
       <div className="phones-container">
          <div className="container">
-            <h4 className="phones-title">
-               Total number of smartphones on page: ({isLoading !== false ? 'Is loading...' : items.length})
+            <div className="phones-container-top-text">
+               <h4 className="phones-title">
+                  Total number of smartphones on page: ({isLoading !== false ? '...' : items.length})
             </h4>
+            </div>
             <SearchBar />
             <div className="phones-inner">
                <BarSelectionBrands />

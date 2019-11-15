@@ -49,7 +49,7 @@ const CartsContainer = (props) => {
             {!!cart.length &&
                <div className="btn-products-order">
                   <Link to='/orders'>
-                     <button>Order Now ?</button>
+                     <button>Go next with Order ?</button>
                   </Link>
                </div>}
          </div>

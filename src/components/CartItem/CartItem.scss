@@ -1,0 +1,13 @@
+@import '../../styles/pallete.scss';
+
+.product-back-details{
+    margin: 10px 0;
+    .btn-back-details{
+        background-color: $mainPurple;
+        padding: 10px 20px;
+        border: none;
+        a{
+            color: $white;
+        }
+    }
+}
