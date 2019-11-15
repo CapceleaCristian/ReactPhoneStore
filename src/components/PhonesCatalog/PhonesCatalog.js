@@ -24,6 +24,8 @@ const PhonesCatalog = (props) => {
       onFetch();
    }, []);
 
+   console.log(brandName);
+
    return (
       <div className="phones-container">
          <div className="container">

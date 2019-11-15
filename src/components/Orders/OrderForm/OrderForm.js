@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './OrderForm.scss';
+
 const OrderForm = () => {
    return (
       <div className="order-page-form">
