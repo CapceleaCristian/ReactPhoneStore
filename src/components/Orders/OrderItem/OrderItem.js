@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import './OrderItem.scss';
 
-const OrderItem = (props) => {
+const OrderItem = ({ product }) => {
 
-   const { Brand, DeviceName, announced, price } = props.product;
+   const { Brand, DeviceName, announced, price } = product;
 
    return (
       <tr>

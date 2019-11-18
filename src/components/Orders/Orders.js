@@ -28,7 +28,10 @@ const Orders = (props) => {
                            <th>Price</th>
                         </tr>
                         {currentOrders.map((product, index) =>
-                           <OrderItem key={index} product={product} />)}
+                           <OrderItem
+                              product={product}
+                              key={index}
+                           />)}
                      </tbody>
                   </table>
                   <div className="orders-display-form">

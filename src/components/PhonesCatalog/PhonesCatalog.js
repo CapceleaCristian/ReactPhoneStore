@@ -1,18 +1,15 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import { setRandomBrand, getPhoneInfo, getBrandName } from '../../store/actions/fetchDataAction';
-import { BarSelectionBrands } from '../BarSelectionBrands';
-import { BarSelectionProperties } from '../BarSelectionProperties';
+import { BarSelectionBrands, BarSelectionProperties, SearchBar } from '../../components';
 import { PhonesListing } from './PhonesListing';
-import { SearchBar } from '../SearchBar';
 import { phoneTypeBrands } from '../../utils/data';
 import './PhonesCatalog.scss';
 
-const PhonesCatalog = (props) => {
+import { setRandomBrand, getPhoneInfo, getBrandName } from '../../store/actions/fetchDataAction';
 
-   const { items, brandName, setRandomBrand, onFetch, isLoading } = props;
+const PhonesCatalog = ({ items, brandName, setRandomBrand, onFetch, isLoading }) => {
 
    const loadRandomPhoneInfo = () => {
       const randomPhoneBrandIndex = Math.floor(Math.random() * phoneTypeBrands.length);

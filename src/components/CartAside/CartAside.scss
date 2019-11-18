@@ -9,7 +9,7 @@
     background-color: rgba($mainPurple, 0.9);
     height: 100%;
     transition: all 1s ease;
-    padding: 0 65px;
+    padding: 0 70px;
     transition: all 0.7s;
     z-index: 10;
 
@@ -50,13 +50,18 @@
 
     .cart-aside-inner {
         padding: 15px 0px;
+        
+        h3{
+            text-align: center;
+        }
 
         .cart-aside-single {
-            background-color: $mainPurpleDarker;
-            margin-bottom: 10px;
+            background: $mainPurple;
+            border: 2px solid #fff;
+            margin: 20px 0;
+            padding: 7px;
 
             img {
-                padding: 5px;
                 width: 100px;
             }
         }

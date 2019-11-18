@@ -1,14 +1,12 @@
 import React from 'react';
 
-import { Orders } from '../../components/Orders';
+import { Orders } from '../../components';
 import { OrderForm } from '../../components/Orders/OrderForm';
 
 import './OrdersPage.scss';
 import { connect } from 'react-redux';
 
-const OrdersPage = (props) => {
-
-   const { orderResponse } = props;
+const OrdersPage = ({ orderResponse }) => {
 
    return (
       <div className="orders-page-container">

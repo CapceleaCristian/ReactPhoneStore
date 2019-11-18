@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import './CartItem.scss';
-const CartItem = (props) => {
+const CartItem = ({ deleteCartItemHandler, product, index }) => {
 
    const testIMG = 'https://s.abcnews.com/images/Technology/samsung-phone-gty-jpo-190423_hpMain_16x9_992.jpg';
-   const { deleteCartItemHandler, product, index } = props;
-
    const currentItemURL = product.DeviceName.split(' ').join('_');
 
    return (

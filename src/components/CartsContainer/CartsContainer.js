@@ -3,14 +3,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { CartItem } from '../CartItem';
+import { CartItem } from './CartItem';
 import { confusedIMG } from '../../assets/resources/imagesURL';
 import { deleteCurrentPhoneCart, clearCurrentCart } from '../../store/actions/inCartAction';
 import './CartsContainer.scss';
 
-const CartsContainer = (props) => {
-
-   const { cart, deleteCurrentPhoneCart, clearCurrentCart } = props;
+const CartsContainer = ({ cart, deleteCurrentPhoneCart, clearCurrentCart }) => {
 
    const clearCartHandler = () => {
       clearCurrentCart();
