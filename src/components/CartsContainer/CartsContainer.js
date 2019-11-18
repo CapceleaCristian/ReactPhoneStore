@@ -30,7 +30,7 @@ const CartsContainer = (props) => {
                :
                <div className="cart-no-items">
                   <img src={confusedIMG} alt="" />
-                  <p>Where are items ?</p>
+                  <p>Where are the items ?</p>
                </div>}
          </div>
          <div className="products-carts-container">

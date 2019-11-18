@@ -1,8 +1,9 @@
 @import '../../styles//pallete.scss';
 
 .orders-page-container {
-    padding: 70px 0;
+    margin-top: 55px;
     .order-top-text {
+        padding: 10px 0;
         display: flex;
         justify-content: space-between;
     }

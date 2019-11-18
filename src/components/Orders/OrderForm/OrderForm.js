@@ -33,9 +33,7 @@ const OrderForm = () => {
             />
          </div>
          <div className="form-group form-btn">
-            <button className="btn-submit">
-               Submit
-               </button>
+            <button className="btn-submit"> Submit </button>
          </div>
       </div>
    )
