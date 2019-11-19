@@ -19,7 +19,7 @@ const CartsContainer = ({ cart, deleteCurrentPhoneCart, clearCurrentCart }) => {
    }
 
    return (
-      <React.Fragment>
+      <React.Fragment className="cart-total-container" >
          <div className="cart-total-discard">
             {cart.length ?
                <div className="btn-discart-all">

@@ -1,13 +1,12 @@
-import React, { useState, } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { getBrandName, getPhoneInfo } from '../../store/actions/fetchDataAction';
 import './SearchBar.scss';
 
-const SearchBar = (props) => {
+const SearchBar = ({ brandHandler, onFetch }) => {
 
-   const { brandHandler, onFetch } = props;
    const [searchInput, setSearchInput] = useState('');
 
    const onChangeHandler = (e) => {
@@ -37,12 +36,12 @@ const SearchBar = (props) => {
 
 const mapStateToProps = state => ({
    brandName: state.phonesData.brand
-});
+})
 
-const mapDispatchToProps = ({
+const mapDispatchToProps = {
    brandHandler: getBrandName,
    onFetch: getPhoneInfo
-});
+}
 
 SearchBar.propTypes = {
    brandHandler: PropTypes.func,

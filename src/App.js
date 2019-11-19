@@ -6,7 +6,6 @@ import { CartAside, NavigationBar, PhonesCatalog } from './components';
 import { PhoneDetailsSingle } from './components/PhonesCatalog/PhoneDetailsSingle';
 import './App.scss';
 
-
 const App = () => {
   return (
     <div className="app-container">

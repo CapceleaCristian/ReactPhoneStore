@@ -6,9 +6,7 @@ import { orderGenerateForm } from '../../store/actions/inCartAction';
 import { OrderItem } from '../Orders/OrderItem';
 import './Orders.scss';
 
-const Orders = (props) => {
-
-   const { currentOrders, orderResponse, orderGenerateForm } = props;
+const Orders = ({ currentOrders, orderResponse, orderGenerateForm }) => {
 
    const displayFormHandler = () => {
       orderGenerateForm();

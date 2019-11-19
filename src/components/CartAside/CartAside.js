@@ -13,6 +13,7 @@ const CartAside = ({ cartItems }) => {
    const asideToggleHandler = () => {
       cartStatus ? setCartStatus(!cartStatus) : setCartStatus(!cartStatus);
    }
+
    return (
       <div className={`cart-aside-container ${toggleStatus}`}
          ref={cartAsideRef}>
@@ -39,7 +40,5 @@ const CartAside = ({ cartItems }) => {
 const mapStateToProps = state => ({
    cartItems: state.inCartData.cart
 })
-
-
 
 export default connect(mapStateToProps, null)(CartAside);

@@ -9,17 +9,16 @@ import { storeCurrentMatch, getSinglePhoneInfo } from '../../../store/actions/fe
 
 import './PhoneDetailsSingle.scss';
 
-const PhoneDetailsSingle = (props) => {
+const PhoneDetailsSingle = ({ images, isLoading, match, singleItem, fetchSingleItem, storeCurrentMatch, onImgFetch, addPhoneToCart }) => {
 
-   const { singleItem, fetchSingleItem, isLoading, storeCurrentMatch, onImgFetch, addPhoneToCart, } = props;
-   const { images } = props.images;
+   const imagesData = images.images;
 
    const phoneDeviceName = singleItem.DeviceName;
    const itemProperties = Object.keys(singleItem).map((key, index) =>
       <p key={index}> <strong>{key}</strong> - {singleItem[key]}</p>);
 
    const matchStoreHandler = () => {
-      const currentMatch = props.match.params.brand.split('_').join(' ');
+      const currentMatch = match.params.brand.split('_').join(' ');
       storeCurrentMatch(currentMatch);
    }
 
@@ -29,7 +28,7 @@ const PhoneDetailsSingle = (props) => {
       onImgFetch();
    }, []);
 
-   const randomImageSrc = images.length ? images[Math.floor(Math.random() * images.length)] : null;
+   const randomImageSrc = imagesData.length ? imagesData[Math.floor(Math.random() * imagesData.length)] : null;
 
    const addInCartHandle = () => {
       addPhoneToCart(singleItem);
