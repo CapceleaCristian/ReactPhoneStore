@@ -8,7 +8,6 @@ const randomNum = Math.floor(Math.random() * arrIMG.length);
 const HomePage = () => {
    return (
       <div className="home-container">
-         <h1>Welcome, this is Home Page !!</h1>
          <img
             draggable="false"
             src={arrIMG[randomNum]}

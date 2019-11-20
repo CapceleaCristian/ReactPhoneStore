@@ -1,0 +1,23 @@
+@import '../../../styles/pallete.scss';
+
+.product-back-details {
+   margin: 10px 0;
+
+   .btn-back-details {
+      border: 3px solid transparent;
+      background-color: $mainPurple;
+      padding: 10px 20px;
+
+      &:hover {
+         border: 3px solid $mainPurple;
+         background-color: $white;
+         a {
+            color: $mainPurple;
+         }
+      }
+
+      a {
+         color: $white;
+      }
+   }
+}

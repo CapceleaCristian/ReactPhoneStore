@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useCallback } from 'react';
+import { array, bool, func, object, string } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -11,25 +11,25 @@ import './PhoneDetailsSingle.scss';
 
 const PhoneDetailsSingle = (props) => {
 
-   const { singleItem, fetchSingleItem, isLoading, storeCurrentMatch, onImgFetch, addPhoneToCart, } = props;
-   const { images } = props.images;
+   const { images, isLoading, match, singleItem, fetchSingleItem, storeCurrentMatch, onImgFetch, addPhoneToCart } = props;
+   const imagesData = images.images;
 
    const phoneDeviceName = singleItem.DeviceName;
    const itemProperties = Object.keys(singleItem).map((key, index) =>
       <p key={index}> <strong>{key}</strong> - {singleItem[key]}</p>);
 
-   const matchStoreHandler = () => {
-      const currentMatch = props.match.params.brand.split('_').join(' ');
+   const matchStoreHandler = useCallback(() => {
+      const currentMatch = match.params.brand.split('_').join(' ');
       storeCurrentMatch(currentMatch);
-   }
+   }, [storeCurrentMatch, match.params.brand])
 
    useEffect(() => {
       matchStoreHandler();
       fetchSingleItem();
       onImgFetch();
-   }, []);
+   }, [matchStoreHandler, fetchSingleItem, onImgFetch]);
 
-   const randomImageSrc = images.length ? images[Math.floor(Math.random() * images.length)] : null;
+   const randomImageSrc = imagesData.length ? imagesData[Math.floor(Math.random() * imagesData.length)] : null;
 
    const addInCartHandle = () => {
       addPhoneToCart(singleItem);
@@ -87,16 +87,19 @@ const mapDispatchToProps = {
 }
 
 PhoneDetailsSingle.propTypes = {
-   location: PropTypes.object,
-   phone: PropTypes.object,
-   phonesInfo: PropTypes.array,
-   onImgFetch: PropTypes.func,
-   addPhoneToCart: PropTypes.func,
-   match: PropTypes.object,
-   images: PropTypes.object,
-   nameToMatch: PropTypes.string,
-   currentPhone: PropTypes.object,
-   fetchSingleItem: PropTypes.func
+   location: object,
+   phone: object,
+   phonesInfo: array,
+   onImgFetch: func,
+   addPhoneToCart: func,
+   match: object,
+   images: object,
+   nameToMatch: string,
+   currentPhone: object,
+   fetchSingleItem: func,
+   isLoading: bool,
+   singleItem: object,
+   storeCurrentMatch: func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhoneDetailsSingle);

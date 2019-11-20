@@ -1,6 +1,9 @@
 // SET RANDOM BRAND
 export const SET_RANDOM_BRAND = 'SET_RANDOM_BRAND';
 
+// Generate form on click totally agree
+export const ORDER_GENERATE_FORM = 'ORDER_GENERATE_FORM';
+
 // Fetching multiple data from API
 export const API_PHONE_INFO_SUCCESS = 'API_PHONE_INFO_SUCCESS';
 export const API_PHONE_INFO_REQUEST = 'API_PHONE_INFO_REQUEST';

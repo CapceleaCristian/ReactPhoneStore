@@ -1,3 +1,9 @@
-export { default as NavigationBar } from './NavigationBar/NavigationBar';
-export { default as PhonesCatalog } from './PhonesCatalog/PhonesCatalog';
-export { default as PhoneDetailsSingle } from './PhonesCatalog/PhoneDetailsSingle/PhoneDetailsSingle';
+// Component folders first level deep
+export * from './BarSelectionBrands';
+export * from './BarSelectionProperties';
+export * from './CartsContainer';
+export * from './CartAside';
+export * from './NavigationBar';
+export * from './Orders';
+export * from './PhonesCatalog';
+export * from './SearchBar';

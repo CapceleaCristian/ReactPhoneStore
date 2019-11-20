@@ -1,19 +1,18 @@
 import { takeEvery, put, call, select } from 'redux-saga/effects';
-import { REQUEST_IMAGES, FETCH_IMAGES_SUCCESS } from '../types/types';
+import { REQUEST_IMAGES, FETCH_IMAGES_SUCCESS } from '../types';
 
+import { apiImagesFetch } from '../../utils/customFunc';
+import { getCurrentMatch } from '../selectors/';
 import { unsplashURL, client_id } from '../../utils/constants';
 
 function reqImages(brandName) {
-    return fetch(`${unsplashURL}?query=${brandName}&client_id=${client_id}`)
-        .then(res => res.json())
+    return apiImagesFetch(unsplashURL, brandName, client_id)
         .then(res => res.results.map(i => i.urls.regular));
 }
 
 function* fetchImages() {
-    const getBrand = yield select();
-    const brandName = getBrand.singlePhone.currentMatch;
-
-    const images = yield call(reqImages, brandName)
+    const getBrand = yield select(getCurrentMatch);
+    const images = yield call(reqImages, getBrand)
     yield put({
         type: FETCH_IMAGES_SUCCESS,
         payload: {

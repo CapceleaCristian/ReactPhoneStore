@@ -1,35 +1,33 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useCallback } from 'react';
 import { connect } from 'react-redux';
+import { array, string, bool, func } from 'prop-types';
 
-import { setRandomBrand, getPhoneInfo, getBrandName } from '../../store/actions/fetchDataAction';
-import { BarSelectionBrands } from '../BarSelectionBrands';
-import { BarSelectionProperties } from '../BarSelectionProperties';
-import { PhonesListing } from './PhonesListing';
-import { SearchBar } from '../SearchBar';
+import { BarSelectionBrands, BarSelectionProperties, SearchBar, PhonesListing } from '../../components';
 import { phoneTypeBrands } from '../../utils/data';
 import './PhonesCatalog.scss';
 
-const PhonesCatalog = (props) => {
+import { setRandomBrand, getPhoneInfo, getBrandName } from '../../store/actions/fetchDataAction';
 
-   const { items, brandName, setRandomBrand, onFetch, isLoading } = props;
+const PhonesCatalog = ({ items, brandName, setRandomBrand, onFetch, isLoading }) => {
 
-   const loadRandomPhoneInfo = () => {
+   const loadRandomPhoneInfo = useCallback(() => {
       const randomPhoneBrandIndex = Math.floor(Math.random() * phoneTypeBrands.length);
       setRandomBrand(phoneTypeBrands[randomPhoneBrandIndex]);
-   }
+   }, [setRandomBrand])
 
    useEffect(() => {
       loadRandomPhoneInfo();
       onFetch();
-   }, []);
+   }, [loadRandomPhoneInfo, onFetch]);
 
    return (
       <div className="phones-container">
          <div className="container">
-            <h4 className="phones-title">
-               Total number of smartphones on page: ({isLoading !== false ? 'Is loading...' : items.length})
+            <div className="phones-container-top-text">
+               <h4 className="phones-title">
+                  Total number of smartphones on page: ({isLoading ? '...' : items.length})
             </h4>
+            </div>
             <SearchBar />
             <div className="phones-inner">
                <BarSelectionBrands />
@@ -59,10 +57,11 @@ const mapDispatchToProps = {
 }
 
 PhonesCatalog.propTypes = {
-   items: PropTypes.array,
-   brandName: PropTypes.string,
-   onFetch: PropTypes.func,
-   isLoading: PropTypes.bool
+   brandName: string,
+   onFetch: func,
+   isLoading: bool,
+   items: array,
+   setRandomBrand: func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhonesCatalog);

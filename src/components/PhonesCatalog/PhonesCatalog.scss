@@ -1,7 +1,8 @@
 @import '../../styles/pallete.scss';
 
 .phones-container {
-    margin-top: 70px;
+    margin-top: 55px;
+    padding: 10px 0;
     .phones-inner {
         display: flex;
         .phones-list {
@@ -20,7 +21,7 @@
 .brandname-styled {
     color: $white;
     padding: 4px 50px;
-    background-color: $mainDarkBlue;
+    background-color: $mainPurple;
 }
 .current-target-container {
     h3 {

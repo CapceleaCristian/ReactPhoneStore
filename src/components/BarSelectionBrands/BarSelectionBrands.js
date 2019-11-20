@@ -6,10 +6,12 @@ import './BarSelectionBrands.scss';
 const BarSelectionBrands = () => {
    return (
       <div className="bar-selection-container">
-         <div>
-            <h5 className="brand-top-text">Popular brands</h5>
+         <div className="bar-selection-inner">
+            <div>
+               <h5 className="brand-top-text">Popular brands</h5>
+            </div>
+            <Brand />
          </div>
-         <Brand />
       </div>
    )
 }

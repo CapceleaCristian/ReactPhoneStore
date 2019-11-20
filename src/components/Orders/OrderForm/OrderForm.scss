@@ -1,0 +1,32 @@
+@import '../../../styles/pallete.scss';
+
+.order-page-form {
+    margin-top: 35px;
+    padding-top: 10px;
+    border-top: 3px solid $mainPurple;
+    border-width: 100%;
+    .form-group {
+        max-width: 60%;
+        margin: 15px auto;
+        .btn-submit {
+            border: 3px solid transparent;
+            margin: 15px 0;
+            background-color: $mainPurple;
+            color: $white;
+            padding: 7px 35px;
+            transition: all 0.3s ease-in-out;
+            text-align: center;
+            &:hover {
+                color: $mainPurple;
+                border: 3px solid $mainPurple;
+                background-color: $white;
+            }
+            &:focus {
+                border: none;
+            }
+        }
+    }
+    .form-btn {
+        text-align: center;
+    }
+}

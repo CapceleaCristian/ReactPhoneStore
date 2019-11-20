@@ -2,13 +2,13 @@
 
 .searchbar-container {
     position: relative;
-    margin: 20px 0;
+    margin: 15px 0;
     text-align: center;
 
     input {
         padding: 5px 10px;
         width: 100%;
-        border: 3px solid $mainDarkBlue;
+        border: 3px solid $mainPurple;
     }
 }
 
@@ -18,7 +18,7 @@
     top: 95%;
     height: 500px;
     background-color: $white;
-    border: 3px solid $mainDarkBlue;
+    border: 3px solid $mainPurple;
     width: 100%;
     overflow: auto;
 }

@@ -10,3 +10,6 @@ export const fonoToken = '35f5cfacc827de44c961d4fa11f818dc73fcb47c559e757e';
 
 // NoImg
 export const noImg = 'https://nettattoo.ru/img/noimg.png';
+
+// TestIMG
+export const testIMG = 'https://s.abcnews.com/images/Technology/samsung-phone-gty-jpo-190423_hpMain_16x9_992.jpg';

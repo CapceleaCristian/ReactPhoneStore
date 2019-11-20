@@ -6,9 +6,7 @@ import { phoneTypeBrands } from '../../../utils/data';
 import { getBrandName, getPhoneInfo } from '../../../store/actions/fetchDataAction';
 import './Brand.scss';
 
-const Brand = (props) => {
-
-   const { brandHandler, onFetch } = props;
+const Brand = ({ brandHandler, onFetch }) => {
 
    const getBrand = (e) => {
       const value = e.currentTarget.innerText;
@@ -40,6 +38,7 @@ const Brand = (props) => {
 const mapStateToProps = state => ({
    brandName: state.phonesData.brand
 })
+
 const mapDispatchToProps = {
    brandHandler: getBrandName,
    onFetch: getPhoneInfo

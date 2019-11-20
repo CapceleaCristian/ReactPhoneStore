@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const CartItem = (props) => {
+import { testIMG } from '../../../utils/constants';
+import './CartItem.scss';
 
-   const testIMG = 'https://s.abcnews.com/images/Technology/samsung-phone-gty-jpo-190423_hpMain_16x9_992.jpg';
-   const { deleteCartItemHandler, product, index } = props;
+const CartItem = ({ deleteCartItemHandler, product, index }) => {
 
    const currentItemURL = product.DeviceName.split(' ').join('_');
 
@@ -26,7 +26,11 @@ const CartItem = (props) => {
             <strong>{product.announced}</strong>
             <p> Price: </p>
             <strong>{product.price}</strong>
-            <Link to={`/phones/${currentItemURL}`}>Back to Details</Link>
+            <div className="product-back-details">
+               <button className="btn-back-details">
+                  <Link to={`/phones/${currentItemURL}`}>Back to Details</Link>
+               </button>
+            </div>
          </div>
       </div>
    )

@@ -23,21 +23,25 @@
 }
 .incart-page-container{
     position: relative;
-    padding: 75px 0;
+    margin-top: 55px;
+    padding: 10px 0;
 }
 .products-carts-container{
   padding: 20px 0;
 }
 .product-cart{
+  margin: 0 auto;
+  max-width: 400px;
   position: relative;
-  min-height: 550px;
+  min-height: 500px;
   border-radius: 15px;
   background-color: $extraLightGrey;
-  border: 3px solid $mainDarkBlue;
+  border: 5px solid $mainPurple;
   text-align: center;
   margin-bottom: 30px;
   transition: all 0.3s ease-in-out;
   &:hover{
+    transform: scale(1.01);
     -webkit-box-shadow: 0px 0px 14px 0px rgba(0, 89, 255, 0.75);
     -moz-box-shadow: 0px 0px 14px 0px rgba(0, 89, 255, 0.75)  ;
       box-shadow: 0px 0px 14px 0px rgba(0, 89, 255, 0.75) ;
@@ -58,7 +62,7 @@
   right: 15px;
   top: 5px;
     button{
-      color: $mainDarkBlue;
+      color: $mainPurple;
       border: none;
       background-color: transparent;
       font-size: 30px;
@@ -82,14 +86,14 @@
       button{
         background-color: $white;
         width: 31.5%;
-        border: 3px solid $mainDarkBlue;
+        border: 3px solid $mainPurple;
         padding: 5px 30px;
-        color: $mainDarkBlue;
+        color: $mainPurple;
         font-weight: 500;
         transition: all 0.3s ease-in-out;
         &:hover{
         background-color: #FFD700;
-        color: $mainDarkBlue;
+        color: $mainPurple;
         }
       }
   }
@@ -101,14 +105,14 @@
         font-size: 20px;
         width: 50%;
         background-color: $white;
-        border: 3px solid $mainDarkBlue;
+        border: 3px solid $mainPurple;
         padding: 5px 30px;
-        color: $mainDarkBlue;
+        color: $mainPurple;
         font-weight: 500;
         transition: all 0.3s ease-in-out;
         &:hover{
         background-color: #FFD700;
-        color: $mainDarkBlue;
+        color: $mainPurple;
       }
     }
   }

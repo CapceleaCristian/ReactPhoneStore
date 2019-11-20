@@ -1,4 +1,4 @@
-import { FETCH_IMAGES_SUCCESS } from "../types/types";
+import { FETCH_IMAGES_SUCCESS } from "../types";
 
 const initialState = {
     images: [],

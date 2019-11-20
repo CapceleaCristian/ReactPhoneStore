@@ -1,4 +1,4 @@
-import { SET_RANDOM_BRAND, GET_BRAND_NAME, API_PHONE_INFO_SUCCESS, API_PHONE_INFO_REQUEST, API_PHONE_INFO_ERROR } from '../types/types';
+import { SET_RANDOM_BRAND, GET_BRAND_NAME, API_PHONE_INFO_SUCCESS, API_PHONE_INFO_REQUEST, API_PHONE_INFO_ERROR } from '../types';
 
 export const setRandomBrand = (payload) => ({
     type: SET_RANDOM_BRAND,

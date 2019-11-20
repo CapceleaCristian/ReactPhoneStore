@@ -3,14 +3,12 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { CartItem } from '../CartItem';
+import { CartItem } from './CartItem';
 import { confusedIMG } from '../../assets/resources/imagesURL';
 import { deleteCurrentPhoneCart, clearCurrentCart } from '../../store/actions/inCartAction';
 import './CartsContainer.scss';
 
-const CartsContainer = (props) => {
-
-   const { cart, deleteCurrentPhoneCart, clearCurrentCart } = props;
+const CartsContainer = ({ cart, deleteCurrentPhoneCart, clearCurrentCart }) => {
 
    const clearCartHandler = () => {
       clearCurrentCart();
@@ -21,7 +19,7 @@ const CartsContainer = (props) => {
    }
 
    return (
-      <React.Fragment>
+      <div className="cart-total-container" >
          <div className="cart-total-discard">
             {cart.length ?
                <div className="btn-discart-all">
@@ -30,7 +28,7 @@ const CartsContainer = (props) => {
                :
                <div className="cart-no-items">
                   <img src={confusedIMG} alt="" />
-                  <p>Where are items ?</p>
+                  <p>Where are the items ?</p>
                </div>}
          </div>
          <div className="products-carts-container">
@@ -49,11 +47,11 @@ const CartsContainer = (props) => {
             {!!cart.length &&
                <div className="btn-products-order">
                   <Link to='/orders'>
-                     <button>Order Now ?</button>
+                     <button>Go next with Order ?</button>
                   </Link>
                </div>}
          </div>
-      </React.Fragment>
+      </div>
    )
 }
 

@@ -1,20 +1,19 @@
 import { takeEvery, select, put, call } from 'redux-saga/effects';
-import { API_SINGLE_PHONE_INFO_REQUEST, API_SINGLE_PHONE_INFO_SUCCESS, API_PHONE_INFO_ERROR } from '../types/types';
+import { API_SINGLE_PHONE_INFO_REQUEST, API_SINGLE_PHONE_INFO_SUCCESS, API_PHONE_INFO_ERROR } from '../types';
 
+import { apiDataFetch } from '../../utils/customFunc';
+import { getCurrentMatch } from '../selectors';
 import { fonoapiURL, fonoToken } from '../../utils/constants';
 
 function reqSingleItem(matchNow) {
-    return fetch(`${fonoapiURL}/v1/getdevice?token=${fonoToken}&device=${matchNow}`)
-        .then(res => res.json())
+    return apiDataFetch(fonoapiURL, fonoToken, matchNow)
         .then(res => res.find(i => i.DeviceName === matchNow))
 }
 
 function* fetchSingleItem() {
-    const getMatch = yield select();
-    const matchNow = getMatch.singlePhone.currentMatch;
-
+    const getMatch = yield select(getCurrentMatch);
     try {
-        const singleItem = yield call(reqSingleItem, matchNow)
+        const singleItem = yield call(reqSingleItem, getMatch)
         yield put({
             type: API_SINGLE_PHONE_INFO_SUCCESS,
             payload: {

@@ -1,9 +1,11 @@
 import React from 'react';
+
 import { cameraTypes } from '../../../utils/data';
 
-const cameraArr = cameraTypes.map(camera => <li key={camera}> - {camera} - </li>);
-
 const Camera = () => {
+
+    const cameraArr = cameraTypes.map(camera => <li key={camera}> - {camera} - </li>);
+
     return (
         <div className="camera-container">
             <div className="property-title">

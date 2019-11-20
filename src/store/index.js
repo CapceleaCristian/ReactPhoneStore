@@ -1,10 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { all, fork } from 'redux-saga/effects';
 
 import rootReducer from './reducers';
-import { watchFetch } from './sagas/sagaItems';
-import { watchImages } from './sagas/sagaImages';
-import { watchSingleFetch } from './sagas/sagaSingleItem';
+import { watchFetch, watchImages, watchSingleFetch } from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(
@@ -15,8 +14,14 @@ const store = createStore(
     )
 );
 
-sagaMiddleware.run(watchFetch);
-sagaMiddleware.run(watchImages);
-sagaMiddleware.run(watchSingleFetch);
+function* rootSaga() {
+    yield all([
+        fork(watchFetch),
+        fork(watchImages),
+        fork(watchSingleFetch),
+    ]);
+}
+
+sagaMiddleware.run(rootSaga);
 
 export default store;

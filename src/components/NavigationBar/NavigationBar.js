@@ -5,9 +5,7 @@ import { Link } from 'react-router-dom';
 
 import './NavigationBar.scss';
 
-const NavigationBar = (props) => {
-
-   const { cart } = props;
+const NavigationBar = ({ cart }) => {
 
    return (
       <nav className="navigationbar-container">

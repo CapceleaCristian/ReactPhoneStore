@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { CartsContainer } from '../../components/CartsContainer';
+import { CartsContainer } from '../../components';
 import './InCartPage.scss';
 
 const InCartPage = (props) => {

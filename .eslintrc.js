@@ -23,8 +23,8 @@ module.exports = {
         "react-hooks"
     ],
     "rules": {
-        "react/prop-types": 0,
-        "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "off"
+        "react/prop-types": 1,
+        "react-hooks/rules-of-hooks": 1,
+        "react-hooks/exhaustive-deps": 1
     }
 };

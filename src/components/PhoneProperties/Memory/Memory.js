@@ -1,9 +1,11 @@
 import React from 'react';
+
 import { memoryTypes } from '../../../utils/data';
 
-const memoryArr = memoryTypes.map(memory => <li key={memory}> - {memory} - </li>);
-
 const Memory = () => {
+
+    const memoryArr = memoryTypes.map(memory => <li key={memory}> - {memory} - </li>);
+
     return (
         <div className="memory-container">
             <div className="property-title">
