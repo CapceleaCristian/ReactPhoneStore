@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
+import { array, bool, func, object, string } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -9,8 +9,9 @@ import { storeCurrentMatch, getSinglePhoneInfo } from '../../../store/actions/fe
 
 import './PhoneDetailsSingle.scss';
 
-const PhoneDetailsSingle = ({ images, isLoading, match, singleItem, fetchSingleItem, storeCurrentMatch, onImgFetch, addPhoneToCart }) => {
+const PhoneDetailsSingle = (props) => {
 
+   const { images, isLoading, match, singleItem, fetchSingleItem, storeCurrentMatch, onImgFetch, addPhoneToCart } = props;
    const imagesData = images.images;
 
    const phoneDeviceName = singleItem.DeviceName;
@@ -86,16 +87,19 @@ const mapDispatchToProps = {
 }
 
 PhoneDetailsSingle.propTypes = {
-   location: PropTypes.object,
-   phone: PropTypes.object,
-   phonesInfo: PropTypes.array,
-   onImgFetch: PropTypes.func,
-   addPhoneToCart: PropTypes.func,
-   match: PropTypes.object,
-   images: PropTypes.object,
-   nameToMatch: PropTypes.string,
-   currentPhone: PropTypes.object,
-   fetchSingleItem: PropTypes.func
+   location: object,
+   phone: object,
+   phonesInfo: array,
+   onImgFetch: func,
+   addPhoneToCart: func,
+   match: object,
+   images: object,
+   nameToMatch: string,
+   currentPhone: object,
+   fetchSingleItem: func,
+   isLoading: bool,
+   singleItem: object,
+   storeCurrentMatch: func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhoneDetailsSingle);

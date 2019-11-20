@@ -1,18 +1,18 @@
 import { takeEvery, put, call, select } from 'redux-saga/effects';
 import { API_PHONE_INFO_REQUEST, API_PHONE_INFO_SUCCESS, } from '../types/types';
 
-import { apiDataFetch } from '../../utils/genericFunctions';
+import { apiDataFetch } from '../../utils/customFunc';
 import { fonoapiURL, fonoToken } from '../../utils/constants';
+import { getBrandName } from '../utility';
 
 function reqData(brandName) {
    return apiDataFetch(fonoapiURL, fonoToken, brandName)
 }
 
 function* fetchData() {
-   const getBrand = yield select();
-   const brandName = getBrand.phonesData.brand;
+   const getBrand = yield select(getBrandName);
 
-   const data = yield call(reqData, brandName)
+   const data = yield call(reqData, getBrand)
    yield put({
       type: API_PHONE_INFO_SUCCESS,
       payload: {

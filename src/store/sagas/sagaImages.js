@@ -1,7 +1,8 @@
 import { takeEvery, put, call, select } from 'redux-saga/effects';
 import { REQUEST_IMAGES, FETCH_IMAGES_SUCCESS } from '../types/types';
 
-import { apiImagesFetch } from '../../utils/genericFunctions';
+import { apiImagesFetch } from '../../utils/customFunc';
+import { getCurrentMatch } from '../utility';
 import { unsplashURL, client_id } from '../../utils/constants';
 
 function reqImages(brandName) {
@@ -10,10 +11,8 @@ function reqImages(brandName) {
 }
 
 function* fetchImages() {
-    const getBrand = yield select();
-    const brandName = getBrand.singlePhone.currentMatch;
-
-    const images = yield call(reqImages, brandName)
+    const getBrand = yield select(getCurrentMatch);
+    const images = yield call(reqImages, getBrand)
     yield put({
         type: FETCH_IMAGES_SUCCESS,
         payload: {

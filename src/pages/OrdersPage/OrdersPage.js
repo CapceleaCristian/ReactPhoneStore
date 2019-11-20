@@ -1,10 +1,9 @@
 import React from 'react';
-
-import { Orders } from '../../components';
-import { OrderForm } from '../../components/Orders/OrderForm';
-
-import './OrdersPage.scss';
 import { connect } from 'react-redux';
+import { bool } from 'prop-types';
+
+import { Orders, OrderForm } from '../../components';
+import './OrdersPage.scss';
 
 const OrdersPage = ({ orderResponse }) => {
 
@@ -16,7 +15,7 @@ const OrdersPage = ({ orderResponse }) => {
                <h3>User current amount: (0 $)</h3>
             </div>
             <Orders />
-            {orderResponse ? <OrderForm /> : null}
+            {orderResponse && <OrderForm />}
          </div>
       </div >
    )
@@ -25,5 +24,9 @@ const OrdersPage = ({ orderResponse }) => {
 const mapStateToProps = state => ({
    orderResponse: state.inCartData.orderResponse
 })
+
+OrdersPage.propTypes = {
+   orderResponse: bool
+}
 
 export default connect(mapStateToProps, null)(OrdersPage);

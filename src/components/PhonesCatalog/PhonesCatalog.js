@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { array, string, bool, func } from 'prop-types';
 
-import { BarSelectionBrands, BarSelectionProperties, SearchBar } from '../../components';
-import { PhonesListing } from './PhonesListing';
+import { BarSelectionBrands, BarSelectionProperties, SearchBar, PhonesListing } from '../../components';
 import { phoneTypeBrands } from '../../utils/data';
 import './PhonesCatalog.scss';
 
@@ -26,7 +25,7 @@ const PhonesCatalog = ({ items, brandName, setRandomBrand, onFetch, isLoading })
          <div className="container">
             <div className="phones-container-top-text">
                <h4 className="phones-title">
-                  Total number of smartphones on page: ({isLoading !== false ? '...' : items.length})
+                  Total number of smartphones on page: ({isLoading ? '...' : items.length})
             </h4>
             </div>
             <SearchBar />
@@ -58,10 +57,11 @@ const mapDispatchToProps = {
 }
 
 PhonesCatalog.propTypes = {
-   items: PropTypes.array,
-   brandName: PropTypes.string,
-   onFetch: PropTypes.func,
-   isLoading: PropTypes.bool
+   brandName: string,
+   onFetch: func,
+   isLoading: bool,
+   items: array,
+   setRandomBrand: func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhonesCatalog);

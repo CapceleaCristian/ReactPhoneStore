@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
+import { CartAside, NavigationBar, PhonesCatalog, PhoneDetailsSingle } from './components';
 import { HomePage, NoMatchPage, InCartPage, OrdersPage } from './pages';
-import { CartAside, NavigationBar, PhonesCatalog } from './components';
-import { PhoneDetailsSingle } from './components/PhonesCatalog/PhoneDetailsSingle';
 import './App.scss';
 
 const App = () => {

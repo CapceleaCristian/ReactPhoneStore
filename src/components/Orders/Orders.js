@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { array, bool, func } from 'prop-types';
 
 import { orderGenerateForm } from '../../store/actions/inCartAction';
 import { OrderItem } from '../Orders/OrderItem';
@@ -57,8 +57,10 @@ const mapDispatchToProps = {
    orderGenerateForm: orderGenerateForm
 }
 
-Orders.propsTypes = {
-   currentOrders: PropTypes.string
+Orders.propTypes = {
+   currentOrders: array,
+   orderResponse: bool,
+   orderGenerateForm: func
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Orders);

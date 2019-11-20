@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { array } from 'prop-types';
 import { connect } from 'react-redux';
 
 import { CartAsideItem } from './CartAsideItem';
@@ -6,12 +7,12 @@ import './CartAside.scss';
 
 const CartAside = ({ cartItems }) => {
 
-   const [cartStatus, setCartStatus] = useState(false);
+   const [cartAsideToggle, setCartAsideToggle] = useState(false);
    const cartAsideRef = useRef('');
-   const toggleStatus = cartStatus ? 'cart-state-open' : 'cart-state-closed';
+   const toggleStatus = cartAsideToggle ? 'cart-state-open' : 'cart-state-closed';
 
    const asideToggleHandler = () => {
-      cartStatus ? setCartStatus(!cartStatus) : setCartStatus(!cartStatus);
+      setCartAsideToggle(!cartAsideToggle);
    }
 
    return (
@@ -27,11 +28,8 @@ const CartAside = ({ cartItems }) => {
             <p className="cart-aside-total">
                {cartItems.length}
             </p>
-            {cartItems.length > 0 ?
-               cartItems.map((item, index) =>
-                  <CartAsideItem item={item} key={index} />)
-               :
-               null}
+            {cartItems.map((item, index) =>
+               <CartAsideItem item={item} key={index} />)}
          </div>
       </div>
    )
@@ -40,5 +38,9 @@ const CartAside = ({ cartItems }) => {
 const mapStateToProps = state => ({
    cartItems: state.inCartData.cart
 })
+
+CartAside.propTypes = {
+   cartItems: array
+}
 
 export default connect(mapStateToProps, null)(CartAside);

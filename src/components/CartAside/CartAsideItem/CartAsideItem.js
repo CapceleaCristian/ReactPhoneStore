@@ -1,10 +1,10 @@
 import React from 'react';
+import { object } from 'prop-types';
 
+import { testIMG } from '../../../utils/constants';
 import './CartAsideItem.scss';
 
 const CartAsideItem = ({ item }) => {
-
-   const testIMG = 'https://s.abcnews.com/images/Technology/samsung-phone-gty-jpo-190423_hpMain_16x9_992.jpg';
 
    return (
       <div className="cart-aside-single" >
@@ -15,6 +15,10 @@ const CartAsideItem = ({ item }) => {
          </div>
       </div>
    )
+}
+
+CartAsideItem.propTypes = {
+   item: object,
 }
 
 export default CartAsideItem;

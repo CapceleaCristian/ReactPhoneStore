@@ -2,10 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import { testIMG } from '../../../utils/constants';
 import './CartItem.scss';
+
 const CartItem = ({ deleteCartItemHandler, product, index }) => {
 
-   const testIMG = 'https://s.abcnews.com/images/Technology/samsung-phone-gty-jpo-190423_hpMain_16x9_992.jpg';
    const currentItemURL = product.DeviceName.split(' ').join('_');
 
    return (
