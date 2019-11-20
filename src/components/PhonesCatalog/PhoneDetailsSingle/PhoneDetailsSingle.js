@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { array, bool, func, object, string } from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -18,16 +18,16 @@ const PhoneDetailsSingle = (props) => {
    const itemProperties = Object.keys(singleItem).map((key, index) =>
       <p key={index}> <strong>{key}</strong> - {singleItem[key]}</p>);
 
-   const matchStoreHandler = () => {
+   const matchStoreHandler = useCallback(() => {
       const currentMatch = match.params.brand.split('_').join(' ');
       storeCurrentMatch(currentMatch);
-   }
+   }, [storeCurrentMatch, match.params.brand])
 
    useEffect(() => {
       matchStoreHandler();
       fetchSingleItem();
       onImgFetch();
-   }, []);
+   }, [matchStoreHandler, fetchSingleItem, onImgFetch]);
 
    const randomImageSrc = imagesData.length ? imagesData[Math.floor(Math.random() * imagesData.length)] : null;
 

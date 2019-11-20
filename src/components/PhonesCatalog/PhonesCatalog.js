@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { array, string, bool, func } from 'prop-types';
 
@@ -10,15 +10,15 @@ import { setRandomBrand, getPhoneInfo, getBrandName } from '../../store/actions/
 
 const PhonesCatalog = ({ items, brandName, setRandomBrand, onFetch, isLoading }) => {
 
-   const loadRandomPhoneInfo = () => {
+   const loadRandomPhoneInfo = useCallback(() => {
       const randomPhoneBrandIndex = Math.floor(Math.random() * phoneTypeBrands.length);
       setRandomBrand(phoneTypeBrands[randomPhoneBrandIndex]);
-   }
+   }, [setRandomBrand])
 
    useEffect(() => {
       loadRandomPhoneInfo();
       onFetch();
-   }, []);
+   }, [loadRandomPhoneInfo, onFetch]);
 
    return (
       <div className="phones-container">
