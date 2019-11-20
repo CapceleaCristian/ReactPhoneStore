@@ -1,8 +1,8 @@
 import { takeEvery, select, put, call } from 'redux-saga/effects';
-import { API_SINGLE_PHONE_INFO_REQUEST, API_SINGLE_PHONE_INFO_SUCCESS, API_PHONE_INFO_ERROR } from '../types/types';
+import { API_SINGLE_PHONE_INFO_REQUEST, API_SINGLE_PHONE_INFO_SUCCESS, API_PHONE_INFO_ERROR } from '../types';
 
 import { apiDataFetch } from '../../utils/customFunc';
-import { getCurrentMatch } from '../utility';
+import { getCurrentMatch } from '../selectors';
 import { fonoapiURL, fonoToken } from '../../utils/constants';
 
 function reqSingleItem(matchNow) {

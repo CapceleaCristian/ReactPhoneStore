@@ -1,4 +1,4 @@
-import { ADD_PHONE_TO_CART, DELETE_CURRENT_PHONE_CART, CLEAR_CURRENT_CART, ORDER_GENERATE_FORM } from '../types/types';
+import { ADD_PHONE_TO_CART, DELETE_CURRENT_PHONE_CART, CLEAR_CURRENT_CART, ORDER_GENERATE_FORM } from '../types';
 
 export const addPhoneToCart = (payload) => ({
     type: ADD_PHONE_TO_CART,

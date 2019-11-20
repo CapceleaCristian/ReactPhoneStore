@@ -1,8 +1,8 @@
 import { takeEvery, put, call, select } from 'redux-saga/effects';
-import { REQUEST_IMAGES, FETCH_IMAGES_SUCCESS } from '../types/types';
+import { REQUEST_IMAGES, FETCH_IMAGES_SUCCESS } from '../types';
 
 import { apiImagesFetch } from '../../utils/customFunc';
-import { getCurrentMatch } from '../utility';
+import { getCurrentMatch } from '../selectors/';
 import { unsplashURL, client_id } from '../../utils/constants';
 
 function reqImages(brandName) {
