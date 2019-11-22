@@ -1,5 +1,5 @@
 import { takeEvery, put, call, select } from 'redux-saga/effects';
-import { API_PHONE_INFO_REQUEST, API_PHONE_INFO_SUCCESS, } from '../types';
+import { API_PHONE_INFO_REQUEST, API_PHONE_INFO_SUCCESS, API_PHONE_INFO_ERROR } from '../types';
 
 import { apiDataFetch } from '../../utils/customFunc';
 import { fonoapiURL, fonoToken } from '../../utils/constants';
@@ -10,16 +10,29 @@ function reqData(brandName) {
 }
 
 function* fetchData() {
+
    const getBrand = yield select(getBrandName);
 
-   const data = yield call(reqData, getBrand)
-   yield put({
-      type: API_PHONE_INFO_SUCCESS,
-      payload: {
-         isLoading: false,
-         data
-      }
-   })
+   const apiDataResponse = yield call(reqData, getBrand);
+   // Problems with API and i can't handle witch try/catch, responese all the time: 200 
+   if ('message' in apiDataResponse) {
+      yield put({
+         type: API_PHONE_INFO_ERROR,
+         payload: {
+            isLoading: false,
+            apiDataResponse
+         }
+      })
+   }
+   else {
+      yield put({
+         type: API_PHONE_INFO_SUCCESS,
+         payload: {
+            isLoading: false,
+            apiDataResponse
+         }
+      })
+   }
 }
 
 export function* watchFetch() {

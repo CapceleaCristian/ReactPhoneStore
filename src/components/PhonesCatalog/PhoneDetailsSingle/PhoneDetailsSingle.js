@@ -7,17 +7,18 @@ import { requestImages } from '../../../store/actions/fetchImagesAction';
 import { addPhoneToCart } from '../../../store/actions/inCartAction';
 import { storeCurrentMatch, getSinglePhoneInfo } from '../../../store/actions/fetchSingleItemAction';
 
+import { NoMatch } from '../../../components';
+import { DotsLoader } from '../../../assets/loaders';
 import './PhoneDetailsSingle.scss';
 
 const PhoneDetailsSingle = (props) => {
 
-   const { images, isLoading, match, singleItem, fetchSingleItem, storeCurrentMatch, onImgFetch, addPhoneToCart } = props;
+   const { errorHandle, images, isLoading, match, singleItem, fetchSingleItem, storeCurrentMatch, onImgFetch, addPhoneToCart } = props;
    const imagesData = images.images;
 
    const phoneDeviceName = singleItem.DeviceName;
    const itemProperties = Object.keys(singleItem).map((key, index) =>
       <p key={index}> <strong>{key}</strong> - {singleItem[key]}</p>);
-
    const matchStoreHandler = useCallback(() => {
       const currentMatch = match.params.brand.split('_').join(' ');
       storeCurrentMatch(currentMatch);
@@ -27,7 +28,7 @@ const PhoneDetailsSingle = (props) => {
       matchStoreHandler();
       fetchSingleItem();
       onImgFetch();
-   }, [matchStoreHandler, fetchSingleItem, onImgFetch]);
+   }, [fetchSingleItem, matchStoreHandler, onImgFetch]);
 
    const randomImageSrc = imagesData.length ? imagesData[Math.floor(Math.random() * imagesData.length)] : null;
 
@@ -46,24 +47,36 @@ const PhoneDetailsSingle = (props) => {
    return (
       <div className="phone-container">
          <div className="container">
-            <div className="phone-details-intro">
-               <Link className="phone-back" to="/phones">
-                  <p> <i className="fas fa-chevron-left" /> Back to All Phones</p>
-               </Link>
-               <h3>Page details for: <span>{isLoading ? 'Loading ...' : phoneDeviceName}</span> </h3>
-            </div>
-            <div className="phone-inner">
-               <div className="phone-details">
-                  {isLoading ? <h3>Loading...</h3> : itemProperties}
-               </div>
-               <div className="phone-img">
-                  <div className="device-purchase-details" >
-                     <p className="price-amount"> Device price: <span>{isLoading ? 'Loading' : productPrice}</span> </p>
-                     <button className="btn-addcart" onClick={addInCartHandle}>  Add to Cart </button>
+            {isLoading ?
+               <DotsLoader />
+               :
+               <div className="phone-container-content">
+                  <div className="phone-details-intro">
+                     <Link className="phone-back" to="/phones">
+                        <p> <i className="fas fa-chevron-left" /> Back to All Phones</p>
+                     </Link>
+                     <h3>Page details for: <span>{isLoading ? 'Loading ...' : phoneDeviceName}</span> </h3>
                   </div>
-                  {isLoading ? <h3>Loading...</h3> : <img src={randomImageSrc} alt="img" />}
-               </div>
-            </div>
+                  {errorHandle ?
+                     <NoMatch />
+                     :
+                     <div className="phone-inner">
+                        <div className="phone-details">
+                           {itemProperties}
+                        </div>
+                        <div className="phone-img">
+                           <div className="device-purchase-details" >
+                              <p className="price-amount"> Device price: <span>{isLoading ? 'Loading' : productPrice}</span> </p>
+                              <button
+                                 className="btn-addcart"
+                                 onClick={addInCartHandle}>
+                                 Add to Cart
+                           </button>
+                           </div>
+                           {isLoading ? <h3>Loading...</h3> : <img src={randomImageSrc} alt="img" />}
+                        </div>
+                     </div>}
+               </div>}
          </div>
       </div>
    )
@@ -76,7 +89,8 @@ const mapStateToProps = (state) => ({
    cart: state.inCartData.cart,
    currentMatchStore: state.singlePhone.currentMatch,
    singleItem: state.singlePhone.singleItem,
-   isLoading: state.singlePhone.isLoading
+   isLoading: state.singlePhone.isLoading,
+   errorHandle: state.singlePhone.error
 })
 
 const mapDispatchToProps = {
@@ -87,6 +101,7 @@ const mapDispatchToProps = {
 }
 
 PhoneDetailsSingle.propTypes = {
+   errorHandle: object,
    location: object,
    phone: object,
    phonesInfo: array,

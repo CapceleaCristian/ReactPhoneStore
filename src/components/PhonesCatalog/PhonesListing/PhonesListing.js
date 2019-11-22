@@ -1,17 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { array, bool, object } from 'prop-types';
+
+import { DotsLoader } from '../../../assets/loaders';
 
 import './PhonesListing.scss';
 
-const PhonesListing = ({ isLoading, currentItems }) => {
+const PhonesListing = ({ isLoading, currentItems, handleError }) => {
 
    return (
       <div className="phone-listing">
          {isLoading !== false ?
-            <h3>Loading... </h3>
+            <DotsLoader />
             :
-            currentItems.map((phoneInfo, index) =>
+            currentItems.length ? currentItems.map((phoneInfo, index) =>
                <div key={index}>
                   <Link to={{
                      pathname: `/phones/${phoneInfo.DeviceName.split(' ').join('_')}`,
@@ -19,14 +21,20 @@ const PhonesListing = ({ isLoading, currentItems }) => {
                   }}>
                      {phoneInfo.DeviceName}
                   </Link>
-               </div>)}
+               </div>)
+               :
+               <div className="phone-listing-nomatch">
+                  <h3>{handleError.message}</h3>
+               </div>
+         }
       </div>
    )
 }
 
 PhonesListing.propTypes = {
-   isLoading: PropTypes.bool,
-   currentItems: PropTypes.array
+   isLoading: bool,
+   currentItems: array,
+   handleError: object
 }
 
 export default PhonesListing;
