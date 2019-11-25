@@ -3,30 +3,89 @@
 .phones-container {
     margin-top: 55px;
     padding: 10px 0;
+
     .phones-inner {
         display: flex;
+
         .phones-list {
+            width: 100%;
             padding: 15px 40px;
         }
     }
-}
-.phones-title {
-    font-size: 30px;
-    text-align: right;
-}
-.isloading-text {
-    padding: 10px 0;
-    text-align: center;
-}
-.brandname-styled {
-    color: $white;
-    padding: 4px 50px;
-    background-color: $mainPurple;
-}
-.current-target-container {
-    h3 {
-        -moz-user-select: none;
-        -khtml-user-select: none;
-        -webkit-user-select: none;
+
+    .phones-title {
+        text-align: right;
+        font-weight: 500;
     }
+
+    .current-target-container {
+        .current-target-name {
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+
+            .brandname-styled {
+                color: $white;
+                // padding: 4px 50px;
+                background-color: $mainPurple;
+            }
+        }
+    }
+}
+
+@media (max-width:320px) {
+
+    .phones-title {
+        font-size: 18px;
+    }
+
+    .current-target-name {
+        font-size: 16px;
+    }
+}
+
+@media (min-width:320px) {
+
+    /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+
+    .phones-title {
+        font-size: 20px;
+    }
+
+    .current-target-name {
+        font-size: 25px;
+    }
+}
+
+@media (min-width:480px) {
+
+    /* smartphones, Android phones, landscape iPhone */
+    .phones-title {
+        font-size: 20px;
+    }
+}
+
+@media (min-width:600px) {
+
+    /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+
+    .phones-title {
+        font-size: 25px;
+    }
+
+    .current-target-name {
+        font-size: 30px;
+    }
+}
+
+@media (min-width:801px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+
+@media (min-width:1025px) {
+    /* big landscape tablets, laptops, and desktops */
+}
+
+@media (min-width:1281px) {
+    /* hi-res laptops and desktops */
 }

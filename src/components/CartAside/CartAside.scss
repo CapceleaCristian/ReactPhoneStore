@@ -50,8 +50,8 @@
 
     .cart-aside-inner {
         padding: 15px 0px;
-        
-        h3{
+
+        h3 {
             text-align: center;
         }
 
@@ -70,6 +70,7 @@
 
 .cart-aside-single {
     position: relative;
+
     .cart-aside-close {
         position: absolute;
         top: -3px;
@@ -100,5 +101,28 @@
 .cart-state-closed {
     .cart-aside-total {
         transition: all 0.7s ease-in-out;
+    }
+}
+
+
+@media (max-width:320px) {
+    .cart-aside-container {
+        display: none;
+    }
+}
+
+@media (min-width:320px) {
+
+    /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+    .cart-aside-container {
+        display: none;
+    }
+}
+
+@media (min-width:1025px) {
+
+    /* big landscape tablets, laptops, and desktops */
+    .cart-aside-container {
+        display: block;
     }
 }

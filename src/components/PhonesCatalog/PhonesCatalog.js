@@ -33,10 +33,11 @@ const PhonesCatalog = ({ items, brandName, setRandomBrand, onFetch, isLoading, h
                <BarSelectionBrands />
                <div className="phones-list">
                   <div className="current-target-container">
-                     <h3>
+                     <h3 className="current-target-name">
                         <span
-                           disabled
-                           className="brandname-styled">{brandName}
+
+                           className="brandname-styled">
+                           {brandName}
                         </span>
                         : Current Target
                      </h3>

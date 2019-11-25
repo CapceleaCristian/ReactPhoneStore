@@ -19,6 +19,7 @@ const PhoneDetailsSingle = (props) => {
    const phoneDeviceName = singleItem.DeviceName;
    const itemProperties = Object.keys(singleItem).map((key, index) =>
       <p key={index}> <strong>{key}</strong> - {singleItem[key]}</p>);
+
    const matchStoreHandler = useCallback(() => {
       const currentMatch = match.params.brand.split('_').join(' ');
       storeCurrentMatch(currentMatch);

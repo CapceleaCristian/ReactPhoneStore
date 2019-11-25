@@ -1,14 +1,87 @@
-.home-container{
-    text-align: center;
-    margin-top: 55px;
-    padding: 20px;
-    height: 100vh;
-    h1{
-        padding: 10px 0;
+@import '../../styles/pallete.scss';
+
+.home-container {
+  margin-top: 55px;
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+
+  .home-inner {
+    display: table-cell;
+    vertical-align: middle;
+
+    .home-toptext {
+      justify-content: center;
+      text-align: center;
+      padding: 15px;
+      color: $darkGrey;
+
+      a {
+        background-color: transparent;
+        padding: 5px;
+        color: $mainPurple;
+        transition: all 0.5s ease-in-out;
+        &:hover{
+          background-color: $mainPurple;
+          color: $white;
+        }
+      }
     }
-    img{
-        height: 90%;
-        border-top-left-radius: 200px;
-        border-bottom-right-radius: 200px;
+
+    .home-img {
+      margin: 0 auto;
+      width: 55%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top-left-radius: 200px;
+      border-bottom-right-radius: 200px;
     }
+  }
+
+}
+
+@media (max-width:320px) {
+  .home-toptext {
+    font-size: 15px;
+  }
+}
+
+@media (min-width:320px) {
+
+  /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+  .home-toptext {
+    font-size: 25px;
+  }
+}
+
+@media (min-width:480px) {
+  /* smartphones, Android phones, landscape iPhone */
+
+  .home-toptext {
+    font-size: 30px;
+  }
+}
+
+@media (min-width:600px) {
+  /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+}
+
+@media (min-width:801px) {
+  /* tablet, landscape iPad, lo-res laptops ands desktops */
+
+  .home-toptext {
+    font-size: 40px;
+  }
+}
+
+@media (min-width:1025px) {
+  /* big landscape tablets, laptops, and desktops */
+}
+
+@media (min-width:1281px) {
+  /* hi-res laptops and desktops */
 }

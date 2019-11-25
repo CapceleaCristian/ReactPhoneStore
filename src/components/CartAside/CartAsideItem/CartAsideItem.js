@@ -1,24 +1,27 @@
 import React from 'react';
-import { object } from 'prop-types';
+import { object, func, number } from 'prop-types';
 
 import { testIMG } from '../../../utils/constants';
 import './CartAsideItem.scss';
 
-const CartAsideItem = ({ item }) => {
+const CartAsideItem = ({ product, deleteCartItemHandler, index }) => {
 
    return (
       <div className="cart-aside-single" >
          <img src={testIMG} alt="" />
-         {item.DeviceName}
+         {product.DeviceName}
          <div className="cart-aside-close">
-            <i className="fas fa-times" />
+            <i onClick={() => deleteCartItemHandler(product, index)}
+               className="fas fa-times" />
          </div>
       </div>
    )
 }
 
 CartAsideItem.propTypes = {
-   item: object,
+   product: object,
+   deleteCartItemHandler: func,
+   index: number
 }
 
 export default CartAsideItem;

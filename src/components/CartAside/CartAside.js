@@ -1,11 +1,20 @@
 import React, { useState, useRef } from 'react';
-import { array } from 'prop-types';
+import { array, func } from 'prop-types';
 import { connect } from 'react-redux';
 
+import { deleteCurrentPhoneCart, clearCurrentCart } from '../../store/actions/inCartAction';
 import { CartAsideItem } from './CartAsideItem';
 import './CartAside.scss';
 
-const CartAside = ({ cartItems }) => {
+const CartAside = ({ cartItems, deleteCurrentPhoneCart, clearCurrentCart }) => {
+
+   const clearCartHandler = () => {
+      clearCurrentCart();
+   }
+
+   const deleteCartItemHandler = (_, indexItem) => {
+      deleteCurrentPhoneCart(indexItem);
+   }
 
    const [cartAsideToggle, setCartAsideToggle] = useState(false);
    const cartAsideRef = useRef('');
@@ -28,8 +37,13 @@ const CartAside = ({ cartItems }) => {
             <p className="cart-aside-total">
                {cartItems.length}
             </p>
-            {cartItems.map((item, index) =>
-               <CartAsideItem item={item} key={index} />)}
+            {cartItems.map((product, index) =>
+               <CartAsideItem
+                  deleteCartItemHandler={deleteCartItemHandler}
+                  product={product}
+                  key={index}
+                  index={index}
+               />)}
          </div>
       </div>
    )
@@ -39,8 +53,14 @@ const mapStateToProps = state => ({
    cartItems: state.inCartData.cart
 })
 
-CartAside.propTypes = {
-   cartItems: array
+const mapDispatchToProps = {
+   deleteCurrentPhoneCart: deleteCurrentPhoneCart,
+   clearCurrentCart: clearCurrentCart
 }
 
-export default connect(mapStateToProps, null)(CartAside);
+CartAside.propTypes = {
+   cartItems: array,
+   clearCartHandler: func
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CartAside);
