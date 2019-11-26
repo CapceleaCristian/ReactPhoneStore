@@ -1,0 +1,23 @@
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .cart-top-info {
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .cart-total-container {
+        .btn-discart-all {
+            text-align: center;
+
+            button {
+                background-color: #fff;
+                width: 100%;
+            }
+        }
+    }
+
+    .products-order .btn-products-order button{
+        width: 100%;
+    }
+}

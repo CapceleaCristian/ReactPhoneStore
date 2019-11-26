@@ -56,7 +56,7 @@ const PhoneDetailsSingle = (props) => {
                      <Link className="phone-back" to="/phones">
                         <p> <i className="fas fa-chevron-left" /> Back to All Phones</p>
                      </Link>
-                     <h3>Page details for: <span>{isLoading ? 'Loading ...' : phoneDeviceName}</span> </h3>
+                     <div className="phone-details-current-phone" >Page details for: <span>{isLoading ? 'Loading ...' : phoneDeviceName}</span> </div>
                   </div>
                   {errorHandle ?
                      <NoMatch />

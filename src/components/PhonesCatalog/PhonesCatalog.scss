@@ -14,6 +14,7 @@
     }
 
     .phones-title {
+        font-size: 26px;
         text-align: right;
         font-weight: 500;
     }
@@ -26,66 +27,77 @@
 
             .brandname-styled {
                 color: $white;
-                // padding: 4px 50px;
+                padding: 4px 50px;
                 background-color: $mainPurple;
             }
         }
     }
 }
 
-@media (max-width:320px) {
+// Start of media query styling
 
-    .phones-title {
-        font-size: 18px;
-    }
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
 
-    .current-target-name {
-        font-size: 16px;
-    }
-}
+    .phones-container {
+        .phones-title {
+            font-size: 22px;
+        }
 
-@media (min-width:320px) {
+        .current-target-container {
+            .current-target-name {
+                font-size: 30px;
 
-    /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
-
-    .phones-title {
-        font-size: 20px;
-    }
-
-    .current-target-name {
-        font-size: 25px;
+                .brandname-styled {
+                    padding: 0;
+                }
+            }
+        }
     }
 }
 
-@media (min-width:480px) {
+@media (min-width: 481px) and (max-width: 767px) {
 
-    /* smartphones, Android phones, landscape iPhone */
-    .phones-title {
-        font-size: 20px;
+    .phones-container {
+        .phones-title {
+            font-size: 22px;
+        }
+
+        .current-target-container {
+            text-align: center;
+
+            .current-target-name {
+                font-size: 30px;
+            }
+        }
+
+        .phone-listing {
+            text-align: center;
+        }
     }
+
 }
 
-@media (min-width:600px) {
+@media (min-width: 320px) and (max-width: 480px) {
 
-    /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+    .phones-container {
+        .phones-title {
+            font-size: 20px;
+        }
 
-    .phones-title {
-        font-size: 25px;
+        .current-target-container {
+            text-align: center;
+
+            .current-target-name {
+                font-size: 28px;
+
+                .brandname-styled {
+                    padding: 0;
+                }
+            }
+        }
+
+        .phone-listing {
+            text-align: center;
+        }
     }
-
-    .current-target-name {
-        font-size: 30px;
-    }
-}
-
-@media (min-width:801px) {
-    /* tablet, landscape iPad, lo-res laptops ands desktops */
-}
-
-@media (min-width:1025px) {
-    /* big landscape tablets, laptops, and desktops */
-}
-
-@media (min-width:1281px) {
-    /* hi-res laptops and desktops */
 }

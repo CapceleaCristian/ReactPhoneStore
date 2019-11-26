@@ -35,7 +35,6 @@ const PhonesCatalog = ({ items, brandName, setRandomBrand, onFetch, isLoading, h
                   <div className="current-target-container">
                      <h3 className="current-target-name">
                         <span
-
                            className="brandname-styled">
                            {brandName}
                         </span>
