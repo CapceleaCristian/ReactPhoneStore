@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FormInput, FormSubmit } from '../../UserForm';
+import { FormInput, FormSubmit } from '../../../components';
 import './OrderForm.scss';
 
 const OrderForm = () => {

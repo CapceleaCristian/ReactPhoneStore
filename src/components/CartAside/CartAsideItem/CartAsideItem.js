@@ -5,7 +5,6 @@ import { testIMG } from '../../../utils/constants';
 import './CartAsideItem.scss';
 
 const CartAsideItem = ({ product, deleteCartItemHandler, index }) => {
-
    return (
       <div className="cart-aside-single" >
          <img src={testIMG} alt="" />

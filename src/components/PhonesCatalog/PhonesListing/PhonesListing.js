@@ -13,8 +13,8 @@ const PhonesListing = ({ isLoading, currentItems, handleError }) => {
          {isLoading !== false ?
             <DotsLoader />
             :
-            currentItems.length ? currentItems.map((phoneInfo, index) =>
-               <div key={index}>
+            currentItems.length ? currentItems.map(phoneInfo =>
+               <div key={phoneInfo.DeviceName}>
                   <Link to={{
                      pathname: `/phones/${phoneInfo.DeviceName.split(' ').join('_')}`,
                      phone: phoneInfo

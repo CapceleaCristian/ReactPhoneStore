@@ -25,7 +25,7 @@ const SearchBar = ({ brandHandler, onFetch }) => {
 
    return (
       <div className="searchbar-container" >
-         <form onSubmit={(e) => handleEnterPress(e)}>
+         <form onSubmit={handleEnterPress}>
             <input
                type="text"
                placeholder="Search something"

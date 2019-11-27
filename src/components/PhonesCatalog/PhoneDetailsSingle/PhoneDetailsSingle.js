@@ -7,6 +7,7 @@ import { requestImages } from '../../../store/actions/fetchImagesAction';
 import { addPhoneToCart } from '../../../store/actions/inCartAction';
 import { storeCurrentMatch, getSinglePhoneInfo } from '../../../store/actions/fetchSingleItemAction';
 
+import { PhoneDetailsSingleContent } from '../PhoneDetailsSingle';
 import { NoMatch } from '../../../components';
 import { DotsLoader } from '../../../assets/loaders';
 import './PhoneDetailsSingle.scss';
@@ -54,29 +55,25 @@ const PhoneDetailsSingle = (props) => {
                <div className="phone-container-content">
                   <div className="phone-details-intro">
                      <Link className="phone-back" to="/phones">
-                        <p> <i className="fas fa-chevron-left" /> Back to All Phones</p>
+                        <p>
+                           <i className="fas fa-chevron-left" />
+                           Back to All Phones
+                        </p>
                      </Link>
-                     <div className="phone-details-current-phone" >Page details for: <span>{isLoading ? 'Loading ...' : phoneDeviceName}</span> </div>
+                     <div className="phone-details-current-phone" >
+                        Page details for:
+                        <span>{phoneDeviceName}</span>
+                     </div>
                   </div>
                   {errorHandle ?
                      <NoMatch />
                      :
-                     <div className="phone-inner">
-                        <div className="phone-details">
-                           {itemProperties}
-                        </div>
-                        <div className="phone-img">
-                           <div className="device-purchase-details" >
-                              <p className="price-amount"> Device price: <span>{isLoading ? 'Loading' : productPrice}</span> </p>
-                              <button
-                                 className="btn-addcart"
-                                 onClick={addInCartHandle}>
-                                 Add to Cart
-                           </button>
-                           </div>
-                           {isLoading ? <h3>Loading...</h3> : <img src={randomImageSrc} alt="img" />}
-                        </div>
-                     </div>}
+                     <PhoneDetailsSingleContent
+                        itemProperties={itemProperties}
+                        productPrice={productPrice}
+                        randomImageSrc={randomImageSrc}
+                        addInCartHandle={addInCartHandle}
+                     />}
                </div>}
          </div>
       </div>
