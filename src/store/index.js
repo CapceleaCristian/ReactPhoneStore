@@ -1,9 +1,9 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { all, fork } from 'redux-saga/effects';
 import createSagaMiddleware from 'redux-saga';
+import { all, fork } from 'redux-saga/effects';
 
-import { watchFetch, watchImages, watchSingleFetch } from './sagas';
 import rootReducer from './reducers';
+import { watchFetch, watchImages, watchSingleFetch } from './sagas';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(

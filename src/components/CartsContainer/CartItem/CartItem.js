@@ -18,6 +18,7 @@ const CartItem = ({ deleteCartItemHandler, product, index }) => {
          </div>
          <div className="product-cart-info">
             <img src={testIMG} alt="" />
+            <p> Product amount: </p> <span><input type="text" value="0" /></span>
             <p> Brand: </p>
             <strong>{product.Brand}</strong>
             <p> Model: </p>

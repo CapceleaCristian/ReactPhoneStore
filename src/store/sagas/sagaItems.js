@@ -10,26 +10,27 @@ function reqData(brandName) {
 }
 
 function* fetchData() {
+   try {
+      const getBrand = yield select(getBrandName);
+      const apiDataResponse = yield call(reqData, getBrand);
 
-   const getBrand = yield select(getBrandName);
+      if (apiDataResponse.status === 'error') {
+         throw apiDataResponse;
+      }
 
-   const apiDataResponse = yield call(reqData, getBrand);
-   // Problems with API and i can't handle witch try/catch, responese all the time: 200 
-   if ('message' in apiDataResponse) {
-      yield put({
-         type: API_PHONE_INFO_ERROR,
-         payload: {
-            isLoading: false,
-            apiDataResponse
-         }
-      })
-   }
-   else {
       yield put({
          type: API_PHONE_INFO_SUCCESS,
          payload: {
             isLoading: false,
             apiDataResponse
+         }
+      })
+   } catch (error) {
+      yield put({
+         type: API_PHONE_INFO_ERROR,
+         payload: {
+            isLoading: false,
+            error
          }
       })
    }

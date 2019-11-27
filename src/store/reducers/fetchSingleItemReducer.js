@@ -22,13 +22,15 @@ export default function (state = initialState, action) {
       case API_SINGLE_PHONE_INFO_SUCCESS:
          return {
             ...state,
+            error: null,
             singleItem: action.payload.singleFiltered,
             isLoading: false
          }
       case API_SINGLE_PHONE_INFO_ERROR:
          return {
             ...state,
-            error: action.payload.apiDataResponseSingle,
+            singleItem: {},
+            error: action.payload,
             isLoading: false
          }
       default:

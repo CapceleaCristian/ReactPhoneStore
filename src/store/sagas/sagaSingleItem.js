@@ -6,37 +6,36 @@ import { getCurrentMatch } from '../selectors';
 import { fonoapiURL, fonoToken } from '../../utils/constants';
 
 function reqSingleItem(matchNow) {
-    return apiDataFetch(fonoapiURL, fonoToken, matchNow)
+   return apiDataFetch(fonoapiURL, fonoToken, matchNow)
 }
-
-// .then(res => res.find(i => i.DeviceName === matchNow)
 
 function* fetchSingleItem() {
+   try {
+      const getMatch = yield select(getCurrentMatch);
+      const apiDataResponseSingle = yield call(reqSingleItem, getMatch)
 
-    const getMatch = yield select(getCurrentMatch);
-    const apiDataResponseSingle = yield call(reqSingleItem, getMatch)
+      if (apiDataResponseSingle.status === 'error')
+         throw apiDataResponseSingle;
 
-    // Problems with API and i can't handle witch try/catch, responese all the time: 200 
-    if ('message' in apiDataResponseSingle) {
-        yield put({
-            type: API_SINGLE_PHONE_INFO_ERROR,
-            payload: {
-                isLoading: false,
-                apiDataResponseSingle
-            }
-        })
-    }
-    else {
-        const singleFiltered = apiDataResponseSingle.find(i => i.DeviceName === getMatch);
-        yield put({
-            type: API_SINGLE_PHONE_INFO_SUCCESS,
-            payload: {
-                isLoading: false,
-                singleFiltered
-            }
-        })
-    }
+      const singleFiltered = apiDataResponseSingle.find(i => i.DeviceName === getMatch);
+
+      yield put({
+         type: API_SINGLE_PHONE_INFO_SUCCESS,
+         payload: {
+            isLoading: false,
+            singleFiltered
+         }
+      })
+   } catch (error) {
+      yield put({
+         type: API_SINGLE_PHONE_INFO_ERROR,
+         payload: {
+            isLoading: false,
+            error
+         }
+      })
+   }
 }
 export function* watchSingleFetch() {
-    yield takeEvery(API_SINGLE_PHONE_INFO_REQUEST, fetchSingleItem)
+   yield takeEvery(API_SINGLE_PHONE_INFO_REQUEST, fetchSingleItem)
 }
