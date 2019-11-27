@@ -22,14 +22,16 @@ export default function (state = initialState, action) {
       case API_PHONE_INFO_SUCCESS:
          return {
             ...state,
-            data: action.payload.data,
-            isLoading: false
+            isLoading: false,
+            error: null,
+            data: action.payload.apiDataResponse,
          }
       case API_PHONE_INFO_ERROR:
          return {
             ...state,
-            error: action.payload,
-            isLoading: false
+            isLoading: false,
+            data: [],
+            error: action.payload.error,
          }
       case GET_BRAND_NAME:
          return {

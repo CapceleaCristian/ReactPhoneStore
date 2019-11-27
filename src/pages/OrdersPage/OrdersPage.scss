@@ -1,7 +1,8 @@
-@import '../../styles//pallete.scss';
+@import '../../styles/pallete.scss';
 
 .orders-page-container {
     margin-top: 55px;
+
     .order-top-text {
         padding: 10px 0;
         display: flex;
@@ -9,3 +10,13 @@
     }
 }
 
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .orders-page-container .order-top-text {
+        flex-direction: column;
+        text-align: center;
+        h3 {
+            font-size: 24px;
+        }
+    }
+}

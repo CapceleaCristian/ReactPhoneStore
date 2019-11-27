@@ -3,30 +3,101 @@
 .phones-container {
     margin-top: 55px;
     padding: 10px 0;
+
     .phones-inner {
         display: flex;
+
         .phones-list {
+            width: 100%;
             padding: 15px 40px;
         }
     }
+
+    .phones-title {
+        font-size: 26px;
+        text-align: right;
+        font-weight: 500;
+    }
+
+    .current-target-container {
+        .current-target-name {
+            -moz-user-select: none;
+            -khtml-user-select: none;
+            -webkit-user-select: none;
+
+            .brandname-styled {
+                color: $white;
+                padding: 4px 50px;
+                background-color: $mainPurple;
+            }
+        }
+    }
 }
-.phones-title {
-    font-size: 30px;
-    text-align: right;
+
+// Start of media query styling
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+    .phones-container {
+        .phones-title {
+            font-size: 22px;
+        }
+
+        .current-target-container {
+            .current-target-name {
+                font-size: 30px;
+
+                .brandname-styled {
+                    padding: 0;
+                }
+            }
+        }
+    }
 }
-.isloading-text {
-    padding: 10px 0;
-    text-align: center;
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+    .phones-container {
+        .phones-title {
+            font-size: 22px;
+        }
+
+        .current-target-container {
+            text-align: center;
+
+            .current-target-name {
+                font-size: 30px;
+            }
+        }
+
+        .phone-listing {
+            text-align: center;
+        }
+    }
+
 }
-.brandname-styled {
-    color: $white;
-    padding: 4px 50px;
-    background-color: $mainPurple;
-}
-.current-target-container {
-    h3 {
-        -moz-user-select: none;
-        -khtml-user-select: none;
-        -webkit-user-select: none;
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+    .phones-container {
+        .phones-title {
+            font-size: 20px;
+        }
+
+        .current-target-container {
+            text-align: center;
+
+            .current-target-name {
+                font-size: 28px;
+
+                .brandname-styled {
+                    padding: 0;
+                }
+            }
+        }
+
+        .phone-listing {
+            text-align: center;
+        }
     }
 }

@@ -1,73 +1,246 @@
 @import '../../../styles/pallete.scss';
 
 .phone-container {
-    margin-top: 55px;
-    padding: 25px 0;
-    .phone-details-intro {
-        font-size: 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-bottom: 25px;
-        border-bottom: 1px solid $lightGrey;
-        .phone-back {
-            font-size: 16px;
-            padding: 10px 35px;
-            color: $white;
-            background-color: $mainPurple;
-            transition: all 0.3s ease-in-out;
-            border: none;
-            &:hover {
-                background-color: $goldMain;
-                color: $white;
-            }
-        }
-        span {
-            background-color: $mainPurple;
-            color: white;
-            padding: 5px 40px;
-            margin-left: 15px;
-        }
-    }
-    .phone-details {
-        margin: 15px 0;
-    }
-}
-.phone-inner {
+  margin-top: 55px;
+  padding: 25px 0;
+
+  .phone-details-intro {
+    font-size: 30px;
     display: flex;
     justify-content: space-between;
-    margin: 15px 0;
+    align-items: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid $lightGrey;
+
+    .phone-back {
+      font-size: 16px;
+      padding: 15px 35px;
+      color: $white;
+      background-color: $mainPurple;
+      transition: all 0.3s ease-in-out;
+      border: none;
+
+      &:hover {
+        background-color: $goldMain;
+        color: $white;
+      }
+    }
+
+    span {
+      background-color: $mainPurple;
+      color: white;
+      padding: 10px 40px;
+      margin-left: 15px;
+    }
+  }
+}
+
+.phone-inner {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
 
 }
-.phone-img {
-    .device-purchase-details {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .btn-addcart {
-            padding: 10px 35px;
-            color: $white;
-            background-color: $mainPurple;
-            transition: all 0.3s ease-in-out;
-            border: none;
-            &:hover {
-                background-color: $goldMain;
-                color: $white;
-            }
-        }
-    }
-    .price-amount {
-        font-size: 23px;
 
-        span {
-            font-weight: 700;
+.phone-img {
+  .device-purchase-details {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .btn-addcart {
+      font-size: 16px;
+      margin-left: 20px;
+      padding: 15px 35px;
+      color: $white;
+      background-color: $mainPurple;
+      transition: all 0.3s ease-in-out;
+      border: none;
+
+      &:hover {
+        background-color: $goldMain;
+        color: $white;
+      }
+    }
+  }
+
+  .price-amount {
+    font-size: 23px;
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  img {
+    background-color: #000;
+    border-top-left-radius: 100px;
+    border: 3px solid $mainPurple;
+    margin: 15px 0;
+    width: 100%;
+  }
+}
+
+// Start of media query styling
+
+@media (min-width: 1281px) {
+
+  .phone-details {
+    width: 50%;
+  }
+
+  .phone-img {
+    width: 50%;
+  }
+
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+  .phone-details {
+    width: 50%;
+    padding: 0 5px;
+
+  }
+
+  .phone-img {
+    width: 50%;
+    padding: 0 5px;
+
+    .price-amount {
+      font-size: 22px;
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+  .phone-container {
+    .phone-details-intro {
+      font-size: 19px;
+    }
+  }
+
+  .phone-details {
+    width: 50%;
+    padding: 0 5px;
+
+  }
+
+  .phone-img {
+    width: 50%;
+    padding: 0 5px;
+
+    .price-amount {
+      font-size: 20px;
+    }
+
+    .device-purchase-details {
+      flex-direction: column;
+
+      .btn-addcart {
+        margin: 7px 0;
+        padding: 15px 30px;
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+  .phone-container {
+    .phone-details-intro {
+      flex-direction: column;
+      font-size: 30px;
+      text-align: center;
+
+      span {
+        padding: 0;
+
+      }
+
+      .phone-back {
+        margin: 0 auto;
+        padding: 15px 35px;
+        display: flex;
+        max-width: 220px;
+        margin-bottom: 15px;
+      }
+    }
+
+    .phone-inner {
+      padding: 0 10px;
+      flex-direction: column;
+    }
+
+    .phone-img {
+      order: 1;
+
+      .device-purchase-details {
+        flex-direction: column;
+
+        .price-amount {
+          font-size: 19px;
         }
+
+        .btn-addcart {
+          margin-top: 5px;
+        }
+      }
     }
-    img {
-        background-color: #000;
-        border-top-left-radius: 100px;
-        border: 3px solid $mainPurple;
-        margin: 15px 0;
-        width: 500px;
+
+    .phone-details {
+      order: 2;
     }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  .phone-container {
+    .phone-details-intro {
+      flex-direction: column;
+      font-size: 30px;
+      text-align: center;
+
+      span {
+        padding: 0 5px;
+        margin: 0;
+      }
+
+      .phone-back {
+        margin: 0 auto;
+        padding: 15px 35px;
+        display: flex;
+        max-width: 220px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .phone-inner {
+      padding: 0 10px;
+      flex-direction: column;
+    }
+
+    .phone-img {
+      order: 1;
+
+      .device-purchase-details {
+        flex-direction: column;
+
+        .price-amount {
+          font-size: 19px;
+          text-align: center;
+        }
+
+        .btn-addcart {
+          margin-top: 5px;
+        }
+      }
+    }
+
+    .phone-details {
+      order: 2;
+    }
+  }
 }

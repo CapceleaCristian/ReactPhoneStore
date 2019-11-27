@@ -9,24 +9,24 @@
    background-color: $mainPurple;
    overflow: hidden;
 
-   .navigationbar-logo{
+   .navigationbar-inner {
+      padding: 15px 0;
+      display: flex;
+      justify-content: space-between;
+
+      .navigationbar-logo {
          a {
             color: $white;
             padding-bottom: 3px;
             transition: all 0.3s ease-in-out;
             border-bottom: 3px solid transparent;
             margin-left: 25px;
-            &:hover{
+
+            &:hover {
                border-bottom: 3px solid $white;
             }
          }
-   }
-   
-   .navigationbar-inner {
-      padding: 15px 0;
-      display: flex;
-      justify-content: space-between;
-      
+      }
 
       .navigationbar-links {
          a {
@@ -35,9 +35,44 @@
             transition: all 0.3s ease-in-out;
             border-bottom: 3px solid transparent;
             margin-left: 25px;
-            &:hover{
+
+            &:hover {
                border-bottom: 3px solid $white;
             }
+         }
+      }
+   }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+   .navigationbar-container {
+      .navigationbar-inner {
+         .navigationbar-links {
+            display: none;
+         }
+      }
+   }
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+   .navigationbar-container {
+      .navigationbar-inner {
+         .navigationbar-links {
+            display: none;
+         }
+      }
+   }
+}
+
+@media (max-width: 320px) {
+
+   .navigationbar-container {
+      .navigationbar-inner {
+         .navigationbar-links {
+            display: none;
          }
       }
    }

@@ -34,7 +34,7 @@ const CartsContainer = ({ cart, deleteCurrentPhoneCart, clearCurrentCart }) => {
          <div className="products-carts-container">
             <div className="row">
                {cart.map((product, index) =>
-                  <div className="col-md-4" key={index}>
+                  <div className="col-lg-3 col-md-4 col-sm-6" key={index}>
                      <CartItem
                         deleteCartItemHandler={deleteCartItemHandler}
                         product={product}

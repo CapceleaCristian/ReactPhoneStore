@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { array, bool, func } from 'prop-types';
 
-import { orderGenerateForm } from '../../store/actions/inCartAction';
 import { OrderItem } from '../Orders/OrderItem';
+import { orderGenerateForm } from '../../store/actions/inCartAction';
 import './Orders.scss';
 
 const Orders = ({ currentOrders, orderResponse, orderGenerateForm }) => {

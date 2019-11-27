@@ -1,5 +1,5 @@
 import { takeEvery, put, call, select } from 'redux-saga/effects';
-import { API_PHONE_INFO_REQUEST, API_PHONE_INFO_SUCCESS, } from '../types';
+import { API_PHONE_INFO_REQUEST, API_PHONE_INFO_SUCCESS, API_PHONE_INFO_ERROR } from '../types';
 
 import { apiDataFetch } from '../../utils/customFunc';
 import { fonoapiURL, fonoToken } from '../../utils/constants';
@@ -10,16 +10,30 @@ function reqData(brandName) {
 }
 
 function* fetchData() {
-   const getBrand = yield select(getBrandName);
+   try {
+      const getBrand = yield select(getBrandName);
+      const apiDataResponse = yield call(reqData, getBrand);
 
-   const data = yield call(reqData, getBrand)
-   yield put({
-      type: API_PHONE_INFO_SUCCESS,
-      payload: {
-         isLoading: false,
-         data
+      if (apiDataResponse.status === 'error') {
+         throw apiDataResponse;
       }
-   })
+
+      yield put({
+         type: API_PHONE_INFO_SUCCESS,
+         payload: {
+            isLoading: false,
+            apiDataResponse
+         }
+      })
+   } catch (error) {
+      yield put({
+         type: API_PHONE_INFO_ERROR,
+         payload: {
+            isLoading: false,
+            error
+         }
+      })
+   }
 }
 
 export function* watchFetch() {

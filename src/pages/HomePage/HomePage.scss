@@ -1,14 +1,94 @@
-.home-container{
-    text-align: center;
-    margin-top: 55px;
-    padding: 20px;
-    height: 100vh;
-    h1{
-        padding: 10px 0;
+@import '../../styles/pallete.scss';
+
+.home-container {
+  margin-top: 55px;
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+
+  .home-inner {
+    display: table-cell;
+    vertical-align: middle;
+
+    .home-toptext {
+      font-size: 40px;
+      justify-content: center;
+      text-align: center;
+      padding: 15px;
+      color: $darkGrey;
+
+      a {
+        background-color: transparent;
+        padding: 5px;
+        color: $mainPurple;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+          background-color: $mainPurple;
+          color: $white;
+        }
+      }
     }
-    img{
-        height: 90%;
-        border-top-left-radius: 200px;
-        border-bottom-right-radius: 200px;
+
+    .home-img {
+      margin: 0 auto;
+      width: 55%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top-left-radius: 200px;
+      border-bottom-right-radius: 200px;
     }
+  }
+
+}
+
+// Start of - media query styling
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+  .home-container {
+    .home-inner {
+      .home-toptext {
+        font-size: 34px;
+      }
+
+      .home-img {
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+  .home-container {
+    .home-inner {
+      .home-toptext {
+        font-size: 34px;
+      }
+
+      .home-img {
+        width: 90%;
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+
+  .home-container {
+    .home-inner {
+      .home-toptext {
+        font-size: 24px;
+      }
+
+      .home-img {
+        width: 90%;
+      }
+    }
+  }
 }

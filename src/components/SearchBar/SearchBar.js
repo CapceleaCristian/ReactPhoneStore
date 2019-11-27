@@ -9,27 +9,30 @@ const SearchBar = ({ brandHandler, onFetch }) => {
 
    const [searchInput, setSearchInput] = useState('');
 
-   const onChangeHandler = (e) => {
+   const onChangeHandler = e => {
       setSearchInput(e.target.value);
    }
 
-   const handleEnterPress = (e) => {
-      if (e.which === 13) {
-         brandHandler(searchInput);
-         onFetch();
-         setSearchInput('');
+   const handleEnterPress = e => {
+      e.preventDefault();
+      if (!searchInput) {
+         return false;
       }
+      brandHandler(searchInput);
+      onFetch();
+      setSearchInput('');
    }
 
    return (
-      <div className="searchbar-container"  >
-         <input
-            type="text"
-            placeholder="Search something"
-            onChange={onChangeHandler}
-            onKeyPress={handleEnterPress}
-            value={searchInput}
-         />
+      <div className="searchbar-container" >
+         <form onSubmit={handleEnterPress}>
+            <input
+               type="text"
+               placeholder="Search something"
+               onChange={onChangeHandler}
+               value={searchInput}
+            />
+         </form>
       </div>
    )
 }
